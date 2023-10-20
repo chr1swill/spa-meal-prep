@@ -25,8 +25,18 @@
           <input type="text" name="total-meat" id="inputEnterMeat" required/>
           <label for="total-meat">Enter Ammount</label>
         </div>
+        <button data-back-button="1"><span class="left-arrow">&larr;</span>Back</button>
       </section>
-      <section id="pageSelectDays">How many days will it be for?</section>
+      <section id="pageSelectDays">
+        <h2>How many days will it be for?</h2>
+        <div class="incrementor-container">
+          <div class="button-container">
+            <button data-incrementer-left>&#8722;</button>
+            <button data-incrementer-right>&#43;</button>
+          </div>
+          <input type="number" data-input-incrementer></input>
+        </div>
+      </section>
       <section id="pageTotalResult"></section>
     </main>
   </body>
