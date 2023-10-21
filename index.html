@@ -6,29 +6,35 @@
     <title>Meal Prep Calculator</title>
   </head>
   <body>
+    <header>
+      <h1 class="h1">Meal Prep Calculator</h1>
+    </header>
+    
     <main>
-      <h1>Meal Prep Calculator</h1>
       <section id="pageSelectMeat">
-        <h2>What meat will you me cooking?</h2>
+        <h2 class="h2">What meat will you me cooking?</h2>
         <div class="row">
-          <button class="select-button" id="buttonTopSirlion">
+          <button data-button-select="top-sirlion">
             Top Sirloin</button
-          ><button class="select-button" id="buttonChickenBreast">
+          ><button data-button-select="chicken-breast">
             Chicken Breast</button
-          ><button class="select-button" id="buttonOther">Other</button>
+          ><button data-button-select="other">Other</button>
         </div>
-        <button class="confirmation-button">Confirm Selection</button>
+        <button data-button-confirm="pageMeat">Confirm Selection</button>
       </section>
+      
       <section id="pageSelectQuanity">
-        <h2>How many grams of meat do you have?</h2>
+        <h2 class="h2">How many grams of meat do you have?</h2>
         <div class="input-container">
           <input type="text" name="total-meat" id="inputEnterMeat" required/>
           <label for="total-meat">Enter Ammount</label>
         </div>
-        <button data-back-button="1"><span class="left-arrow">&larr;</span>Back</button>
+        <button data-button-confirm="pageQuanity">Confirm Selection</button>
+        <button data-back-button="pageQuanity"><span class="left-arrow">&larr;</span>Back</button>
       </section>
+      
       <section id="pageSelectDays">
-        <h2>How many days will it be for?</h2>
+        <h2 class="h2">How many days will it be for?</h2>
         <div class="incrementor-container">
           <div class="button-container">
             <button data-incrementer-left>&#8722;</button>
@@ -36,8 +42,32 @@
           </div>
           <input type="number" data-input-incrementer></input>
         </div>
+        <button data-button-confirm="pageDays">Confirm Selection</button>
+        <button data-back-button="pageDays"><span class="left-arrow">&larr;</span>Back</button>
       </section>
-      <section id="pageTotalResult"></section>
+      
+      <section id="pageTotalResult">
+        <div class="card">
+          <h2 class="h1">Total result:</h2>
+          <p><span id="resultTotalMeat"></span>g of meat for <span id="resultTotalDays"></span> days</p>
+          <div class="divider"></div>
+          <h3 class="h3">Protien<span class="sm-text">/day</span></h3>
+          <p id="resultProtienDaily"></p>
+          <div class="divider"></div>
+          <h3 class="h3">Meat<span class="sm-text">/day</span></h3>
+          <p id="resultMeatDaily"></p>
+        </div>
+        <h2 class="h2">Change number of days</h2>
+        <div class="incrementor-container">
+          <div class="button-container">
+            <button data-incrementer-left>&#8722;</button>
+            <button data-incrementer-right>&#43;</button>
+          </div>
+          <input type="number" data-input-incrementer></input>
+        </div>
+        <button data-button-confirm="pageResult">Confirm Selection</button>
+        <button data-back-button="pageResult"><span class="left-arrow">&larr;</span>Back</button> 
+      </section>
     </main>
   </body>
 </html>
