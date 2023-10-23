@@ -27,4 +27,14 @@ const incrementerInput = document.querySelector('[data-input-incrementer]') as H
 const incrementerBtnMinus = document.querySelector('[data-incrementer-left]') as HTMLButtonElement
 const incrementerBtnPlus = document.querySelector('[data-incrementer-right]') as HTMLButtonElement
 
+function hidePage(page: HTMLElement) {
+    page.setAttribute("aria-hidden", "true")
+    page.style.display = "none"
+}
+
+function showPage(page: HTMLElement) {
+    page.setAttribute('aria-hidden', 'false')
+    page.style.display = 'block'
+}
+
 
