@@ -58,3 +58,36 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+::root {
+    --clr-text: #040316;
+    --clr-background: #FBFBFE;
+    --clr-accent: #443DFF;
+    --clr-button-primary: #2F27CE;
+    --clr-button-secondary: #DDDBFF;
+    
+    --default-font: 'Roboto', sans-serif;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+
+    --fs-10: 10px;
+    --fs-16: 16px;
+    --fs-18: 18px;
+    --fs-24: 24px;
+    --fs-28: 28px;
+}
+
+@media(prefer-system-scheme: dark) {
+    ::root {
+        --clr-text: #ECE9FC;
+        --clr-background: #010104;
+        --clr-accent: #0600C2;
+        --clr-button-primary: #3A31D8;
+        --clr-button-secondary: #020024;
+    }
+}
+
+.hidden {
+  display: none;
+}
