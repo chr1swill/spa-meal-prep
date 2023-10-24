@@ -37,6 +37,7 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 
 a {
@@ -59,7 +60,7 @@ h6 {
   isolation: isolate;
 }
 
-::root {
+:root {
     --clr-text: #040316;
     --clr-background: #FBFBFE;
     --clr-accent: #443DFF;
@@ -79,12 +80,21 @@ h6 {
 }
 
 @media(prefer-system-scheme: dark) {
-    ::root {
+    :root {
         --clr-text: #ECE9FC;
         --clr-background: #010104;
         --clr-accent: #0600C2;
         --clr-button-primary: #3A31D8;
         --clr-button-secondary: #020024;
     }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0 min(1rem, 100%);
+  overflow: hidden;
+  background-color: var(--clr-background);
+  color: var(--clr-text);
 }
 
