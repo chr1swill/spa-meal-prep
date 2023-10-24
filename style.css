@@ -119,7 +119,7 @@ body {
   font-weight: var(--fw-700);
 }
 
-.h3, button {
+.h3 {
   font-size: var(--fs-300);
   font-weight: var(--fw-700);
 }
