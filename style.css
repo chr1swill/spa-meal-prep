@@ -72,11 +72,12 @@ h6 {
     --fw-500: 500;
     --fw-700: 700;
 
-    --fs-10: 10px;
-    --fs-16: 16px;
-    --fs-18: 18px;
-    --fs-24: 24px;
-    --fs-28: 28px;
+    --fs-100: 10px;
+    --fs-200: 16px;
+    --fs-300: 18px;
+    --fs-400: 24px;
+    --fs-500: 28px;
+    --fs-600: 32px; 
 }
 
 @media(prefer-system-scheme: dark) {
@@ -90,11 +91,52 @@ h6 {
 }
 
 body {
+  --side-margin: min(1rem, 100%);
   width: 100%;
-  height: 100%;
-  margin: 0 min(1rem, 100%);
+  height: 100vh;
+  margin: 0;
   overflow: hidden;
   background-color: var(--clr-background);
   color: var(--clr-text);
+  font-family: var(--default-font);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+.h1 {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-700);
+}
+
+.h1-and-a-half {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-700);
+}
+
+.h2 {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-700);
+}
+
+.h3, button {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+}
+
+p {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+}
+
+header {
+  margin: 40px var(--side-margin) 0px var(--side-margin);
+}
+
+main {
+  margin: 0px var(--side-margin);
+}
+
+section {
+  margin: 0px 0px 216px 0;
+}
