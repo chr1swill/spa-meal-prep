@@ -251,3 +251,17 @@ section > .h2:first-of-type {
   font-size: var(--fs-100);
   top: 2px;
 }
+
+[data-back-button] {
+  margin: 40px 0px 0px 0px;
+  background-color: transparent;
+  border: none;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-500);
+  opacity: 100%;
+  transition: var(--transition);
+}
+
+[data-back-button]:active {
+  opacity: 80%;
+}
