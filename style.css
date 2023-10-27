@@ -20,6 +20,7 @@ html {
 body {
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img,
@@ -61,11 +62,11 @@ h6 {
 }
 
 :root {
-    --clr-text: #040316;
-    --clr-background: #FBFBFE;
-    --clr-accent: #443DFF;
-    --clr-button-primary: #2F27CE;
-    --clr-button-secondary: #DDDBFF;
+    --clr-text: 243, 76%, 5%;
+    --clr-background: 240, 60%, 99%;
+    --clr-accent: 242, 100%, 62%;
+    --clr-button-primary: 243, 68%, 48%;
+    --clr-button-secondary: 243, 100%, 93%;
     
     --default-font: 'Roboto', sans-serif;
     --fw-400: 400;
@@ -78,29 +79,33 @@ h6 {
     --fs-400: 24px;
     --fs-500: 28px;
     --fs-600: 32px; 
+    
+    --border-radius: 10px;
+    --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
+    --transition: all 0.1s ease-in;
 }
 
 @media(prefer-system-scheme: dark) {
     :root {
-        --clr-text: #ECE9FC;
-        --clr-background: #010104;
-        --clr-accent: #0600C2;
-        --clr-button-primary: #3A31D8;
-        --clr-button-secondary: #020024;
+        --clr-text: 249, 76%, 95%;
+        --clr-background: 240, 60%, 1%;
+        --clr-accent: 242, 100%, 38%;
+        --clr-button-primary: 243, 68%, 52%;
+        --clr-button-secondary: 243, 100%, 7%;
     }
 }
 
 body {
   --side-margin: min(1rem, 100%);
+  --max-width: 400px;
   width: 100%;
-  height: 100vh;
-  margin: 0;
   overflow: hidden;
-  background-color: var(--clr-background);
-  color: var(--clr-text);
+  background-color: hsl(var(--clr-background));
+  color: hsl(var(--clr-text));
   font-family: var(--default-font);
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -130,13 +135,85 @@ p {
 }
 
 header {
+  max-width: var(--max-width);
   margin: 40px var(--side-margin) 0px var(--side-margin);
 }
 
 main {
+  max-width: var(--max-width);
   margin: 0px var(--side-margin);
 }
 
 section {
+  width: 100%;
   margin: 0px 0px 216px 0;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 0px 32px 0px;
+}
+
+section > .h2:first-of-type {
+  margin: 0px 0px 16px 0px;
+}
+
+/* all: unset caused bug in the with property of the button that cau:ed it to grow outside its container */
+/* button {
+  all: unset;
+} */
+
+[data-button-select] {
+  width:auto;
+  height:auto;
+  padding:10.5px;
+  text-align: center;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-500);
+  background-color: hsl(var(--clr-button-secondary));
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+[data-button-select]:hover {
+  box-shadow: var(--box-shadow);
+}
+
+[data-button-select]:focus-visible {
+  box-shadow: var(--box-shadow-position) hsla(var(--clr-text), 0.1);
+  border: 2px solid hsl(var(--clr-text));
+}
+
+[data-button-confirm] {
+  width: 100%;
+  height:auto;
+  padding:15.5px;
+  text-align: center;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  background-color: hsl(var(--clr-button-primary));
+  color: hsl(var(--clr-background));
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+[data-button-confirm]:hover {
+  box-shadow: var(--box-shadow);
+}
+
+[data-button-confirm]:focus-visible {
+  box-shadow: var(--box-shadow);
+  border: 2px solid hsl(var(--clr-text));
+}
+
+[data-button-confirm]:active {
+  background-color: hsl(var(--clr-accent));
+}
+
+
