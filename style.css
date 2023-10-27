@@ -81,6 +81,7 @@ h6 {
     --fs-600: 32px; 
     
     --border-radius: 10px;
+    --border: 2px solid hsl(var(--clr-text));
     --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
     --transition: all 0.1s ease-in;
 }
@@ -185,7 +186,7 @@ section > .h2:first-of-type {
 
 [data-button-select]:focus-visible {
   box-shadow: var(--box-shadow-position) hsla(var(--clr-text), 0.1);
-  border: 2px solid hsl(var(--clr-text));
+  border: var(--border);
 }
 
 [data-button-confirm] {
@@ -209,11 +210,44 @@ section > .h2:first-of-type {
 
 [data-button-confirm]:focus-visible {
   box-shadow: var(--box-shadow);
-  border: 2px solid hsl(var(--clr-text));
+  border: var(--border);
 }
 
 [data-button-confirm]:active {
   background-color: hsl(var(--clr-accent));
 }
 
+.input-container {
+  --container-height: 52px;
+  position: relative;
+  width: 100%;
+  height: var(--container-height);
+  margin: 0px 0px 32px 0px;
+  & input {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 10px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: hsl(var(--clr-button-secondary));
+  }
+  & label {
+    --TEXT_BOX_HEIGHT: 25.2px;
+    position: absolute;
+    top: calc((var(--container-height) - var(--TEXT_BOX_HEIGHT)) /2);
+    left: 10px;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-400);
+    color: hsla(var(--clr-text), 0.4);
+    transition: var(--transition);
+  }
+}
 
+.input-container input:focus {
+  border: var(--border);
+}
+
+.input-container input:focus + label {
+  font-size: var(--fs-100);
+  top: 2px;
+}
