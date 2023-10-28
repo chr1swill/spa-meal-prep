@@ -212,6 +212,13 @@ section > .h2:first-of-type {
   background-color: hsl(var(--clr-accent));
 }
 
+input {
+  width: 100%;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: hsl(var(--clr-button-secondary));
+}
+
 .input-container {
   --container-height: 52px;
   position: relative;
@@ -219,12 +226,8 @@ section > .h2:first-of-type {
   height: var(--container-height);
   margin: 0px 0px 32px 0px;
   & input {
-    width: 100%;
     height: 100%;
     padding: 0px 0px 0px 10px;
-    border: none;
-    border-radius: var(--border-radius);
-    background-color: hsl(var(--clr-button-secondary));
   }
   & label {
     --TEXT_BOX_HEIGHT: 25.2px;
@@ -254,7 +257,7 @@ section > .h2:first-of-type {
   background-color: transparent;
   border: none;
   font-size: var(--fs-200);
-  font-weight: var(--fw-500);
+  font-weight: var(--fw-700);
   opacity: 100%;
   transition: var(--transition);
 }
