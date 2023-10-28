@@ -17,7 +17,7 @@
     </header>
     
     <main>
-      <section id="pageSelectMeat" aria-hidden="true" style="display: none;" >
+      <section id="pageSelectMeat" aria-hidden="true" style="display: none;">
         <h2 class="h2">What meat will you be cooking?</h2>
         <div class="row">
           <button data-button-select="top-sirlion">
@@ -29,27 +29,44 @@
         <button data-button-confirm="pageMeat">Confirm Selection</button>
       </section>
       
-      <section id="pageSelectQuanity">
+      <section id="pageSelectQuanity" aria-hidden="true" style="display: none;">
         <h2 class="h2">How many grams of meat do you have?</h2>
         <div class="input-container">
           <input type="text" name="total-meat" id="inputMeatQuanity" required/>
           <label for="total-meat">Enter Ammount</label>
         </div>
         <button data-button-confirm="pageQuanity">Confirm Selection</button>
-        <button data-back-button="pageQuanity"><span class="left-arrow">&larr;</span>Back</button>
+        <button data-back-button="pageQuanity"><span class="left-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21" fill="none">
+            <path d="M14 2L4 10L14 19" stroke="#040316" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span>Back</button>
       </section>
       
-      <section id="pageSelectDays" aria-hidden="true" style="display: none;">
+      <section id="pageSelectDays">
         <h2 class="h2">How many days will it be for?</h2>
         <div class="incrementor-container">
           <div class="button-container">
-            <button data-incrementer-left>&#8722;</button>
-            <button data-incrementer-right>&#43;</button>
+            <button data-incrementer-left>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="4" viewBox="0 0 24 4" fill="none">
+                <path d="M2 2L22 2" stroke="#040316" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <button data-incrementer-right>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M2 12L22 12" stroke="#040316" stroke-width="3" stroke-linecap="round"/>
+                <path d="M12 22L12 2" stroke="#040316" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </button>
           </div>
           <input type="number" data-input-incrementer></input>
         </div>
         <button data-button-confirm="pageDays">Confirm Selection</button>
-        <button data-back-button="pageDays"><span class="left-arrow">&larr;</span>Back</button>
+        <button data-back-button="pageDays"><span class="left-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21" fill="none">
+            <path d="M14 2L4 10L14 19" stroke="#040316" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span>Back</button>
       </section>
       
       <section id="pageTotalResult"aria-hidden="true" style="display: none;">
@@ -66,13 +83,26 @@
         <h2 class="h2">Change number of days</h2>
         <div class="incrementor-container">
           <div class="button-container">
-            <button data-incrementer-left>&#8722;</button>
-            <button data-incrementer-right>&#43;</button>
+            <button data-incrementer-left>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="4" viewBox="0 0 24 4" fill="none">
+                <path d="M2 2L22 2" stroke="#040316" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <button data-incrementer-right>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M2 12L22 12" stroke="#040316" stroke-width="3" stroke-linecap="round"/>
+                <path d="M12 22L12 2" stroke="#040316" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </button>
           </div>
           <input type="number" data-input-incrementer></input>
         </div>
         <button data-button-confirm="pageResult">Confirm Selection</button>
-        <button data-back-button="pageResult"><span class="left-arrow">&larr;</span>Back</button> 
+        <button data-back-button="pageResult"><span class="left-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21" fill="none">
+            <path d="M14 2L4 10L14 19" stroke="#040316" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span>Back</button> 
       </section>
     </main>
   </body>

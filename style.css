@@ -161,11 +161,6 @@ section > .h2:first-of-type {
   margin: 0px 0px 16px 0px;
 }
 
-/* all: unset caused bug in the with property of the button that cau:ed it to grow outside its container */
-/* button {
-  all: unset;
-} */
-
 [data-button-select] {
   width:auto;
   height:auto;
