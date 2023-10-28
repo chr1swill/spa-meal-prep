@@ -84,6 +84,7 @@ h6 {
     --border: 2px solid hsl(var(--clr-text));
     --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
     --transition: all 0.1s ease-in;
+    --margin-b32: 0px 0px 32px 0px;
 }
 
 @media(prefer-system-scheme: dark) {
@@ -224,7 +225,7 @@ input {
   position: relative;
   width: 100%;
   height: var(--container-height);
-  margin: 0px 0px 32px 0px;
+  margin: var(--margin-b32);
   & input {
     height: 100%;
     padding: 0px 0px 0px 10px;
@@ -269,3 +270,4 @@ input {
 [data-back-button]:active {
   opacity: 80%;
 }
+
