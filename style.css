@@ -248,6 +248,8 @@ section > .h2:first-of-type {
 }
 
 [data-back-button] {
+  display: flex;
+  align-items: center;
   margin: 40px 0px 0px 0px;
   background-color: transparent;
   border: none;
@@ -255,6 +257,10 @@ section > .h2:first-of-type {
   font-weight: var(--fw-500);
   opacity: 100%;
   transition: var(--transition);
+}
+
+.left-arrow {
+  padding: 0px 5px 0px 0px;
 }
 
 [data-back-button]:active {
