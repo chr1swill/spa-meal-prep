@@ -87,8 +87,9 @@ h6 {
     --border-clr-text: 2px solid hsl(var(--clr-text));
     --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
     --transition: all 0.1s ease-in;
-    --margin-b32: 0px 0px 32px 0px;
+    --margin-b32: 0px 0px 20px 0px;
     --input-container-height: 52px;
+    --TEXT_BOX_HEIGHT: 25.2px;
 }
 
 @media(prefer-system-scheme: dark) {
@@ -102,8 +103,6 @@ h6 {
 }
 
 body {
-  --side-margin: min(1rem, 100%);
-  --max-width: 400px;
   width: 100%;
   overflow: hidden;
   background-color: hsl(var(--clr-background));
@@ -140,14 +139,13 @@ p {
   font-weight: var(--fw-400);
 }
 
-header {
-  max-width: var(--max-width);
-  margin: 40px var(--side-margin) 0px var(--side-margin);
+main, header {
+  width: min(400px, 100%);
+  padding: 0rem 1rem;
 }
 
-main {
-  max-width: var(--max-width);
-  margin: 0px var(--side-margin);
+header {
+  margin: 40px 0px;
 }
 
 section {
@@ -159,11 +157,11 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0px 0px 32px 0px;
+  margin: var(--margin-b32);
 }
 
 section > .h2:first-of-type {
-  margin: 0px 0px 16px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 [data-button-select] {
@@ -234,7 +232,6 @@ input {
     padding: 0px 0px 0px 10px;
   }
   & label {
-    --TEXT_BOX_HEIGHT: 25.2px;
     position: absolute;
     top: calc((var(--input-container-height) - var(--TEXT_BOX_HEIGHT)) /2);
     left: 10px;
@@ -257,7 +254,7 @@ input {
 [data-back-button] {
   display: flex;
   align-items: center;
-  margin: 40px 0px 0px 0px;
+  margin: 32px 0px 0px 0px;
   background-color: transparent;
   border: none;
   font-size: var(--fs-200);
@@ -317,4 +314,27 @@ input {
 [data-button-incrementer]:active {
   background-color: hsl(var(--clr-accent));
   border: var(--border-clr-accent);
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  padding: 16px 16px 16px 16px;
+  margin: 0px 0px 32px 0px;
+  background-color: hsl(var(--clr-button-secondary));
+  border-radius: var(--border-radius);
+  & p {
+    height: var(--TEXT_BOX_HEIGHT);
+  }  
+  & .h3 {
+    margin: 10px 0px 0px 0px;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  margin: 10px 0px 0px 0px;
+  border-radius: var(--border-radius);
+  background-color: hsl(var(--clr-text));
 }
