@@ -62,44 +62,45 @@ h6 {
 }
 
 :root {
-    --clr-text: 243, 76%, 5%;
-    --clr-background: 240, 60%, 99%;
-    --clr-accent: 242, 100%, 62%;
-    --clr-button-primary: 243, 68%, 48%;
-    --clr-button-secondary: 243, 100%, 93%;
-    
-    --default-font: 'Roboto', sans-serif;
-    --fw-400: 400;
-    --fw-500: 500;
-    --fw-700: 700;
+  --clr-text: 243, 76%, 5%;
+  --clr-background: 240, 60%, 99%;
+  --clr-accent: 242, 100%, 62%;
+  --clr-button-primary: 243, 68%, 48%;
+  --clr-button-secondary: 243, 100%, 93%;
 
-    --fs-100: 10px;
-    --fs-200: 16px;
-    --fs-300: 18px;
-    --fs-400: 24px;
-    --fs-500: 28px;
-    --fs-600: 32px; 
-    
-    --br-value: 10px;
-    --border-radius: var(--br-value);
-    --border-clr-primary: 4px solid hsl(var(--clr-button-primary));
-    --border-clr-accent: 4px solid hsl(var(--clr-accent));
-    --border-clr-text: 2px solid hsl(var(--clr-text));
-    --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
-    --transition: all 0.1s ease-in;
-    --margin-b32: 0px 0px 20px 0px;
-    --input-container-height: 52px;
-    --TEXT_BOX_HEIGHT: 25.2px;
+  --default-font: 'Roboto', sans-serif;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --fs-100: 10px;
+  --fs-200: 16px;
+  --fs-300: 18px;
+  --fs-400: 24px;
+  --fs-500: 28px;
+  --fs-600: 32px;
+
+  --br-value: 10px;
+  --border-radius: var(--br-value);
+  --border-clr-primary: 4px solid hsl(var(--clr-button-primary));
+  --border-clr-accent: 4px solid hsl(var(--clr-accent));
+  --border-clr-text: 2px solid hsl(var(--clr-text));
+
+  --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
+  --transition: all 0.1s ease-in;
+  --margin-bottom: 0px 0px 20px 0px;
+  --input-container-height: 52px;
+  --TEXT_BOX_HEIGHT: 25.2px;
 }
 
 @media(prefer-system-scheme: dark) {
-    :root {
-        --clr-text: 249, 76%, 95%;
-        --clr-background: 240, 60%, 1%;
-        --clr-accent: 242, 100%, 38%;
-        --clr-button-primary: 243, 68%, 52%;
-        --clr-button-secondary: 243, 100%, 7%;
-    }
+  :root {
+    --clr-text: 249, 76%, 95%;
+    --clr-background: 240, 60%, 1%;
+    --clr-accent: 242, 100%, 38%;
+    --clr-button-primary: 243, 68%, 52%;
+    --clr-button-secondary: 243, 100%, 7%;
+  }
 }
 
 body {
@@ -139,7 +140,8 @@ p {
   font-weight: var(--fw-400);
 }
 
-main, header {
+main,
+header {
   width: min(390px, 100%);
   padding: 0rem 1rem;
 }
@@ -157,17 +159,17 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: var(--margin-b32);
+  margin: var(--margin-bottom);
 }
 
-section > .h2:first-of-type {
+section>.h2:first-of-type {
   margin: 0px 0px 10px 0px;
 }
 
 [data-button-select] {
-  width:auto;
-  height:auto;
-  padding:10.5px;
+  width: auto;
+  height: auto;
+  padding: 10.5px;
   text-align: center;
   font-size: var(--fs-200);
   font-weight: var(--fw-500);
@@ -189,8 +191,8 @@ section > .h2:first-of-type {
 
 [data-button-confirm] {
   width: 100%;
-  height:auto;
-  padding:15.5px;
+  height: auto;
+  padding: 15.5px;
   text-align: center;
   font-size: var(--fs-300);
   font-weight: var(--fw-700);
@@ -226,11 +228,13 @@ input {
   position: relative;
   width: 100%;
   height: var(--input-container-height);
-  margin: var(--margin-b32);
+  margin: var(--margin-bottom);
+
   & input {
     height: 100%;
     padding: 0px 0px 0px 10px;
   }
+
   & label {
     position: absolute;
     top: calc((var(--input-container-height) - var(--TEXT_BOX_HEIGHT)) /2);
@@ -246,7 +250,7 @@ input {
   border: var(--border-clr-text);
 }
 
-.input-container input:focus + label {
+.input-container input:focus+label {
   font-size: var(--fs-100);
   top: 2px;
 }
@@ -272,28 +276,34 @@ input {
 }
 
 .incrementor-container {
+  --incrementer-btn-width: 120px;
   position: relative;
-  height: var(--input-container-height);  
-  margin: var(--margin-b32);
-  & input, button {
+  height: var(--input-container-height);
+  margin: var(--margin-bottom);
+
+  & input,
+  button {
     position: absolute;
     height: 100%;
+    border: var(--border-clr-primary);
   }
+
   & input {
     text-align: center;
     font-size: var(--fs-300);
     font-weight: var(--fw-700);
-    border: var(--border-clr-primary);
   }
+
   & button {
     z-index: 1;
     background-color: hsl(var(--clr-button-primary));
-    border: var(--border-clr-primary);
     transition: var(--transition);
   }
+
   & svg {
     margin: 0px auto;
   }
+
   & path {
     stroke: hsl(var(--clr-background));
   }
@@ -301,13 +311,13 @@ input {
 
 [data-button-incrementer="left"] {
   left: 0%;
-  width: 120px;
+  width: var(--incrementer-btn-width);
   border-radius: var(--br-value) 0px 0px var(--br-value);
 }
 
 [data-button-incrementer="right"] {
   right: 0%;
-  width: 120px;
+  width: var(--incrementer-btn-width);
   border-radius: 0px var(--br-value) var(--br-value) 0px;
 }
 
@@ -317,24 +327,27 @@ input {
 }
 
 .card {
+  --card-top-margin: 10px 0px 0px 0px;
   width: 100%;
   height: auto;
   padding: 16px 16px 16px 16px;
   margin: 0px 0px 32px 0px;
   background-color: hsl(var(--clr-button-secondary));
   border-radius: var(--border-radius);
+
   & p {
     height: var(--TEXT_BOX_HEIGHT);
-  }  
+  }
+
   & .h3 {
-    margin: 10px 0px 0px 0px;
+    margin: var(--card-top-margin);
   }
 }
 
 .divider {
   width: 100%;
   height: 2px;
-  margin: 10px 0px 0px 0px;
+  margin: var(--card-top-margin);
   border-radius: var(--border-radius);
   background-color: hsl(var(--clr-text));
 }
