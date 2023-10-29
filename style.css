@@ -140,7 +140,7 @@ p {
 }
 
 main, header {
-  width: min(400px, 100%);
+  width: min(390px, 100%);
   padding: 0rem 1rem;
 }
 
