@@ -83,7 +83,7 @@ h6 {
     --br-value: 10px;
     --border-radius: var(--br-value);
     --border-clr-primary: 4px solid hsl(var(--clr-button-primary));
-    --border-clr-accent: 4px solid hsl(var(var(--clr-accent)))
+    --border-clr-accent: 4px solid hsl(var(--clr-accent));
     --border-clr-text: 2px solid hsl(var(--clr-text));
     --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
     --transition: all 0.1s ease-in;
