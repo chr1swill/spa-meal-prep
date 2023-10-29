@@ -65,3 +65,24 @@ const incrementorBtnMinus = document.querySelector(
 const incrementorBtnPlus = document.querySelector(
   '[data-button-incrementor="right"]'
 ) as HTMLButtonElement;
+
+const selectButtons: HTMLButtonElement[] = [
+  selectTopSirloin,
+  selectChickenBreast,
+  selectOther,
+];
+selectButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (button.classList.contains("selected")) {
+      button.classList.remove("selected");
+    } else if (!button.classList.contains("selected")) {
+      selectButtons.forEach((select) => {
+        if (select.classList.contains("selected")) {
+          select.classList.remove("selected");
+        }
+      });
+      button.classList.add("selected");
+    }
+  });
+});

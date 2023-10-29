@@ -162,7 +162,7 @@ section {
   margin: var(--margin-bottom);
 }
 
-section > .h2:first-of-type {
+section>.h2:first-of-type {
   margin: 0px 0px 10px 0px;
 }
 
@@ -187,6 +187,11 @@ section > .h2:first-of-type {
 [data-button-select]:focus-visible {
   box-shadow: var(--box-shadow-position) hsla(var(--clr-text), 0.1);
   border: var(--border-clr-text);
+}
+
+.selected {
+  color: hsl(var(--clr-background));
+  background-color: hsl(var(--clr-accent));
 }
 
 [data-button-confirm] {
@@ -250,7 +255,7 @@ input {
   border: var(--border-clr-text);
 }
 
-.input-container input:focus + label {
+.input-container input:focus+label {
   font-size: var(--fs-100);
   top: 2px;
 }
