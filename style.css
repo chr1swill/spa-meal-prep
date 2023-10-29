@@ -83,6 +83,7 @@ h6 {
     --br-value: 10px;
     --border-radius: var(--br-value);
     --border-clr-primary: 4px solid hsl(var(--clr-button-primary));
+    --border-clr-accent: 4px solid hsl(var(var(--clr-accent)))
     --border-clr-text: 2px solid hsl(var(--clr-text));
     --box-shadow: 0px 10px 24px hsla(var(--clr-text), 0.2);
     --transition: all 0.1s ease-in;
@@ -291,6 +292,13 @@ input {
     z-index: 1;
     background-color: hsl(var(--clr-button-primary));
     border: var(--border-clr-primary);
+    transition: var(--transition);
+  }
+  & svg {
+    margin: 0px auto;
+  }
+  & path {
+    stroke: hsl(var(--clr-background));
   }
 }
 
@@ -304,4 +312,9 @@ input {
   right: 0%;
   width: 120px;
   border-radius: 0px var(--br-value) var(--br-value) 0px;
+}
+
+[data-button-incrementer]:active {
+  background-color: hsl(var(--clr-accent));
+  border: var(--border-clr-accent);
 }
