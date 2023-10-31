@@ -63,10 +63,11 @@ const incrementorBtnMinus = document.querySelector(
   '[data-button-incrementor="left"]'
 ) as HTMLButtonElement;
 const incrementorBtnPlus = document.querySelector(
-  '[data-button-incrementor="right"]'
-) as HTMLButtonElement;
+  '[data-button-incrementor="right"]')
+  
+const PROTIEN_PER_GRAM_TOP_SIRLOIN: number = 0.27;
+const PROTIEN_PER_GRAM_CHICKEN_BREAST: number = 0.32;
 
-let PROTEIN_PER_GRAM_MEAT: number | undefined;
 const selectButtons: HTMLButtonElement[] = [
   selectTopSirloin,
   selectChickenBreast,
@@ -99,16 +100,8 @@ confirmMeatPage.addEventListener("click", (e) => {
     }
   }
   if (!chosenButton) {
-    return;
-  } else if (chosenButton == selectTopSirloin) {
-    PROTEIN_PER_GRAM_MEAT = 0.27;
-    // next page
-  } else if (chosenButton == selectChickenBreast) {
-    PROTEIN_PER_GRAM_MEAT = 0.32;
-    //next page
-  } else if (chosenButton == selectOther) {
-    PROTEIN_PER_GRAM_MEAT = undefined;
-    // page to manually assign protein per a gram (still need to be made)
+    alert("Error: A selection need to be made to continue.")
+  } else {
+    // logic to go to next pageSelectMeat 
   }
-  console.log(PROTEIN_PER_GRAM_MEAT);
 });
