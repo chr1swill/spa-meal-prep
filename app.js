@@ -21,6 +21,7 @@ var backBtnOnResult = document.querySelector('[data-back-button="pageResult"]');
 var incrementorInput = document.querySelector("[data-input-incrementor]");
 var incrementorBtnMinus = document.querySelector('[data-button-incrementor="left"]');
 var incrementorBtnPlus = document.querySelector('[data-button-incrementor="right"]');
+var PROTEIN_PER_GRAM_MEAT;
 var selectButtons = [
     selectTopSirloin,
     selectChickenBreast,
@@ -41,4 +42,32 @@ selectButtons.forEach(function (button) {
             button.classList.add("selected");
         }
     });
+});
+// *next step is to confirm select change array selectButtons into a array of object button: "element" and proteinPerGram: "value"
+confirmMeatPage.addEventListener("click", function (e) {
+    e.preventDefault();
+    var chosenButton;
+    for (var _i = 0, selectButtons_1 = selectButtons; _i < selectButtons_1.length; _i++) {
+        var button = selectButtons_1[_i];
+        if (button.classList.contains("selected")) {
+            chosenButton = button;
+            break;
+        }
+    }
+    if (!chosenButton) {
+        return;
+    }
+    else if (chosenButton == selectTopSirloin) {
+        PROTEIN_PER_GRAM_MEAT = 0.27;
+        // next page
+    }
+    else if (chosenButton == selectChickenBreast) {
+        PROTEIN_PER_GRAM_MEAT = 0.32;
+        //next page
+    }
+    else if (chosenButton == selectOther) {
+        PROTEIN_PER_GRAM_MEAT = undefined;
+        // page to manually assign protein per a gram (still need to be made)
+    }
+    console.log(PROTEIN_PER_GRAM_MEAT);
 });
