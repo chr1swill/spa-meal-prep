@@ -215,3 +215,21 @@ confirmQuantityPage.addEventListener("click", (e) => {
     pageHidePageShow(pageSelectQuantity, pageSelectDays);
   }
 });
+
+backBtnOnQuantity.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  pageHidePageShow(pageSelectQuantity, pageSelectMeat);
+});
+
+backBtnOnDays.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  pageHidePageShow(pageSelectDays, pageSelectQuantity);
+});
+
+backBtnOnResult.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  pageHidePageShow(pageTotalResult, pageSelectDays);
+});
