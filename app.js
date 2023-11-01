@@ -83,3 +83,18 @@ confirmMeatPage.addEventListener("click", function (e) {
         pageHidePageShow(pageSelectMeat, pageSelectQuantity);
     }
 });
+inputMeatQuantity.addEventListener("keypress", function (event) {
+    var key = event.key;
+    var regex = /[0-9 ,]/;
+    if (!regex.test(key)) {
+        event.preventDefault();
+    }
+});
+inputMeatQuantity.addEventListener("paste", function (event) {
+    var pasteData = event.clipboardData || window.clipboardData;
+    var pastedText = pasteData.getData("text");
+    var regex = /^[0-9 ,]*$/;
+    if (!regex.test(pastedText)) {
+        event.preventDefault();
+    }
+});

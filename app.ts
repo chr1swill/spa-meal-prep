@@ -138,3 +138,20 @@ confirmMeatPage.addEventListener("click", (e) => {
     pageHidePageShow(pageSelectMeat, pageSelectQuantity);
   }
 });
+
+inputMeatQuantity.addEventListener("keypress", function (event) {
+  const key = event.key;
+  const regex = /[0-9 ,]/;
+  if (!regex.test(key)) {
+    event.preventDefault();
+  }
+});
+
+inputMeatQuantity.addEventListener("paste", function (event) {
+  const pasteData = event.clipboardData || (window as any).clipboardData;
+  const pastedText = pasteData.getData("text");
+  const regex = /^[0-9 ,]*$/;
+  if (!regex.test(pastedText)) {
+    event.preventDefault();
+  }
+});
