@@ -29,7 +29,7 @@ var selectButtons = [
     selectOther,
 ];
 function setPageHidden(page) {
-    page.style.display = "hidden";
+    page.style.display = "none";
     page.setAttribute("aria-hidden", "true");
 }
 function setPageVisible(page) {

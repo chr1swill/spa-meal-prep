@@ -76,7 +76,7 @@ const selectButtons: HTMLButtonElement[] = [
 ];
 
 function setPageHidden(page: HTMLElement): void {
-  page.style.display = "hidden";
+  page.style.display = "none";
   page.setAttribute("aria-hidden", "true");
 }
 
