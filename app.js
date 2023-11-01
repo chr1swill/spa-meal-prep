@@ -53,6 +53,8 @@ selectButtons.forEach(function (button) {
             button.classList.remove("selected");
         }
         else if (!button.classList.contains("selected")) {
+            var errorMsg = document.querySelector(".error-msg");
+            errorMsg === null || errorMsg === void 0 ? void 0 : errorMsg.remove();
             selectButtons.forEach(function (select) {
                 if (select.classList.contains("selected")) {
                     select.classList.remove("selected");

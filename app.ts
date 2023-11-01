@@ -106,6 +106,8 @@ selectButtons.forEach((button) => {
     if (button.classList.contains("selected")) {
       button.classList.remove("selected");
     } else if (!button.classList.contains("selected")) {
+      const errorMsg = document.querySelector(".error-msg");
+      errorMsg?.remove();
       selectButtons.forEach((select) => {
         if (select.classList.contains("selected")) {
           select.classList.remove("selected");
