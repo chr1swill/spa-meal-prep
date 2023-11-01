@@ -21,13 +21,25 @@ var backBtnOnResult = document.querySelector('[data-back-button="pageResult"]');
 var incrementorInput = document.querySelector("[data-input-incrementor]");
 var incrementorBtnMinus = document.querySelector('[data-button-incrementor="left"]');
 var incrementorBtnPlus = document.querySelector('[data-button-incrementor="right"]');
-var PROTIEN_PER_GRAM_TOP_SIRLOIN = 0.27;
-var PROTIEN_PER_GRAM_CHICKEN_BREAST = 0.32;
+var PROTEIN_PER_GRAM_TOP_SIRLOIN = 0.27;
+var PROTEIN_PER_GRAM_CHICKEN_BREAST = 0.32;
 var selectButtons = [
     selectTopSirloin,
     selectChickenBreast,
     selectOther,
 ];
+function setPageHidden(page) {
+    page.style.display = "hidden";
+    page.setAttribute("aria-hidden", "true");
+}
+function setPageVisible(page) {
+    page.style.display = "block";
+    page.setAttribute("aria-hidden", "false");
+}
+function pageHidePageShow(pageToHide, pageToShow) {
+    setPageHidden(pageToHide);
+    setPageVisible(pageToShow);
+}
 selectButtons.forEach(function (button) {
     button.addEventListener("click", function (e) {
         e.preventDefault();
@@ -59,6 +71,7 @@ confirmMeatPage.addEventListener("click", function (e) {
         alert("Error: A selection need to be made to continue.");
     }
     else {
-        // logic to go to next pageSelectMeat 
+        // logic to go to next pageSelectMeat
+        pageHidePageShow(pageSelectMeat, pageSelectDays);
     }
 });

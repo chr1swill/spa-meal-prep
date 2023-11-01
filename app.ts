@@ -74,6 +74,25 @@ const selectButtons: HTMLButtonElement[] = [
   selectChickenBreast,
   selectOther,
 ];
+
+function setPageHidden(page: HTMLElement): void {
+  page.style.display = "hidden";
+  page.setAttribute("aria-hidden", "true");
+}
+
+function setPageVisible(page: HTMLElement): void {
+  page.style.display = "block";
+  page.setAttribute("aria-hidden", "false");
+}
+
+function pageHidePageShow(
+  pageToHide: HTMLElement,
+  pageToShow: HTMLElement
+): void {
+  setPageHidden(pageToHide);
+  setPageVisible(pageToShow);
+}
+
 selectButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -104,5 +123,6 @@ confirmMeatPage.addEventListener("click", (e) => {
     alert("Error: A selection need to be made to continue.");
   } else {
     // logic to go to next pageSelectMeat
+    pageHidePageShow(pageSelectMeat, pageSelectDays);
   }
 });
