@@ -72,6 +72,6 @@ confirmMeatPage.addEventListener("click", function (e) {
     }
     else {
         // logic to go to next pageSelectMeat
-        pageHidePageShow(pageSelectMeat, pageSelectDays);
+        pageHidePageShow(pageSelectMeat, pageSelectQuantity);
     }
 });

@@ -123,6 +123,6 @@ confirmMeatPage.addEventListener("click", (e) => {
     alert("Error: A selection need to be made to continue.");
   } else {
     // logic to go to next pageSelectMeat
-    pageHidePageShow(pageSelectMeat, pageSelectDays);
+    pageHidePageShow(pageSelectMeat, pageSelectQuantity);
   }
 });
