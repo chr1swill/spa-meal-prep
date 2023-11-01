@@ -67,6 +67,7 @@ h6 {
   --clr-accent: 242, 100%, 62%;
   --clr-button-primary: 243, 68%, 48%;
   --clr-button-secondary: 243, 100%, 93%;
+  --clr-error: 0, 80%, 40%;
 
   --default-font: "Roboto", sans-serif;
   --fw-400: 400;
@@ -136,7 +137,6 @@ body {
 }
 
 p {
-  font-size: var(--fs-300);
   font-weight: var(--fw-400);
 }
 
@@ -358,13 +358,14 @@ input {
 }
 
 .error-msg {
+  --br: 5px;
   width: calc(100% - 1rem);
   height: auto;
-  background-color: red;
+  background-color: hsl(var(--clr-error));
   color: hsl(var(--clr-background));
-  font-size: var(--fs-200);
+  font-size: var(--fs-100);
   font-weight: var(--fw-400);
   padding: 5px 5px;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 0px 0px var(--br) var(--br);
 }
