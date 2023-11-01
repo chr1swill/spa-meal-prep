@@ -46,6 +46,23 @@ function createErrorMsg(text) {
     errorMsg.className = "error-msg";
     return errorMsg;
 }
+function strToArr(string) {
+    var trimmedStr = string.trim();
+    return trimmedStr.split(/[ ,]+/);
+}
+function arrOfStrToNums(array) {
+    var arrOfNums = array.forEach(function (number) {
+        parseInt(number);
+    });
+    return arrOfNums;
+}
+function arrayTotal(array) {
+    var total = 0;
+    for (var i = 0; i < array.length; i++) {
+        total += array[i];
+    }
+    return total;
+}
 selectButtons.forEach(function (button) {
     button.addEventListener("click", function (e) {
         e.preventDefault();
@@ -96,5 +113,28 @@ inputMeatQuantity.addEventListener("paste", function (event) {
     var regex = /^[0-9 ,]*$/;
     if (!regex.test(pastedText)) {
         event.preventDefault();
+    }
+});
+inputMeatQuantity.addEventListener("input", function (e) {
+    e.preventDefault();
+    var inputLabel = document.querySelector("#labelForMeatQuantity");
+    if (this.value.length > 0) {
+        inputLabel.style.top = "2px";
+        inputLabel.style.fontSize = "10px";
+    }
+    else {
+        inputLabel.style.top =
+            "calc((var(--input-container-height) - var(--TEXT_BOX_HEIGHT)) / 2)";
+        inputLabel.style.fontSize = "18px";
+    }
+});
+confirmQuantityPage.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (inputMeatQuantity.value == null) {
+        var error = createErrorMsg("Error: Input can not be null, add a quantity");
+        confirmQuantityPage.insertAdjacentElement("afterend", error);
+        console.error("Error: Input can not be null, add a quantity");
+    }
+    else {
     }
 });
