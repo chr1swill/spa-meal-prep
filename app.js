@@ -127,14 +127,22 @@ inputMeatQuantity.addEventListener("input", function (e) {
             "calc((var(--input-container-height) - var(--TEXT_BOX_HEIGHT)) / 2)";
         inputLabel.style.fontSize = "18px";
     }
+    var errorMsg = document.querySelector(".error-msg");
+    errorMsg === null || errorMsg === void 0 ? void 0 : errorMsg.remove();
 });
 confirmQuantityPage.addEventListener("click", function (e) {
     e.preventDefault();
     if (inputMeatQuantity.value == null) {
-        var error = createErrorMsg("Error: Input can not be null, add a quantity");
+        var error = createErrorMsg("Error: Input can not be null, add a quantity of meat");
         confirmQuantityPage.insertAdjacentElement("afterend", error);
-        console.error("Error: Input can not be null, add a quantity");
+        console.error("Error: Input can not be null, add a quantity of meat");
+    }
+    else if (!/[0-9]/.test(inputMeatQuantity.value)) {
+        var error = createErrorMsg("Error: Input need to contain numbers, add the number of grams of meat");
+        confirmQuantityPage.insertAdjacentElement("afterend", error);
+        console.error("Error: Input need to contain numbers, add the number of grams of meat");
     }
     else {
+        pageHidePageShow(pageSelectQuantity, pageSelectDays);
     }
 });
