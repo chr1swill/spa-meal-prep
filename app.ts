@@ -117,7 +117,7 @@ selectButtons.forEach((button) => {
     }
   });
 });
-// *next step is to confirm select change array selectButtons into a array of object button: "element" and proteinPerGram: "value"
+
 confirmMeatPage.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -129,14 +129,12 @@ confirmMeatPage.addEventListener("click", (e) => {
     }
   }
   if (!chosenButton) {
-    // alert("Error: A selection needs to be made to continue.");
     const error = createErrorMsg(
       "Error: A selection needs to be made to continue."
     );
     confirmMeatPage.insertAdjacentElement("afterend", error);
     console.error("Error: A selection needs to be made to continue.");
   } else {
-    // logic to go to next pageSelectMeat
     pageHidePageShow(pageSelectMeat, pageSelectQuantity);
   }
 });
