@@ -356,3 +356,15 @@ input {
   border-radius: var(--border-radius);
   background-color: hsl(var(--clr-text));
 }
+
+.error-msg {
+  width: calc(100% - 1rem);
+  height: auto;
+  background-color: red;
+  color: hsl(var(--clr-background));
+  font-size: var(--fs-200);
+  font-weight: var(--fw-400);
+  padding: 5px 5px;
+  margin: 0 auto;
+  border-radius: 5px;
+}

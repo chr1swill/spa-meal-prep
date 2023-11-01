@@ -40,6 +40,12 @@ function pageHidePageShow(pageToHide, pageToShow) {
     setPageHidden(pageToHide);
     setPageVisible(pageToShow);
 }
+function createErrorMsg(text) {
+    var errorMsg = document.createElement("div");
+    errorMsg.innerText = text;
+    errorMsg.className = "error-msg";
+    return errorMsg;
+}
 selectButtons.forEach(function (button) {
     button.addEventListener("click", function (e) {
         e.preventDefault();
@@ -68,7 +74,10 @@ confirmMeatPage.addEventListener("click", function (e) {
         }
     }
     if (!chosenButton) {
-        alert("Error: A selection need to be made to continue.");
+        // alert("Error: A selection needs to be made to continue.");
+        var error = createErrorMsg("Error: A selection needs to be made to continue.");
+        confirmMeatPage.insertAdjacentElement("afterend", error);
+        console.error("Error: A selection needs to be made to continue.");
     }
     else {
         // logic to go to next pageSelectMeat

@@ -93,6 +93,13 @@ function pageHidePageShow(
   setPageVisible(pageToShow);
 }
 
+function createErrorMsg(text: string): HTMLElement {
+  const errorMsg = document.createElement("div");
+  errorMsg.innerText = text;
+  errorMsg.className = "error-msg";
+  return errorMsg;
+}
+
 selectButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -120,7 +127,12 @@ confirmMeatPage.addEventListener("click", (e) => {
     }
   }
   if (!chosenButton) {
-    alert("Error: A selection need to be made to continue.");
+    // alert("Error: A selection needs to be made to continue.");
+    const error = createErrorMsg(
+      "Error: A selection needs to be made to continue."
+    );
+    confirmMeatPage.insertAdjacentElement("afterend", error);
+    console.error("Error: A selection needs to be made to continue.");
   } else {
     // logic to go to next pageSelectMeat
     pageHidePageShow(pageSelectMeat, pageSelectQuantity);
