@@ -63,10 +63,11 @@ const incrementorBtnMinus = document.querySelector(
   '[data-button-incrementor="left"]'
 ) as HTMLButtonElement;
 const incrementorBtnPlus = document.querySelector(
-  '[data-button-incrementor="right"]')
-  
-const PROTIEN_PER_GRAM_TOP_SIRLOIN: number = 0.27;
-const PROTIEN_PER_GRAM_CHICKEN_BREAST: number = 0.32;
+  '[data-button-incrementor="right"]'
+);
+
+const PROTEIN_PER_GRAM_TOP_SIRLOIN: number = 0.27;
+const PROTEIN_PER_GRAM_CHICKEN_BREAST: number = 0.32;
 
 const selectButtons: HTMLButtonElement[] = [
   selectTopSirloin,
@@ -100,8 +101,8 @@ confirmMeatPage.addEventListener("click", (e) => {
     }
   }
   if (!chosenButton) {
-    alert("Error: A selection need to be made to continue.")
+    alert("Error: A selection need to be made to continue.");
   } else {
-    // logic to go to next pageSelectMeat 
+    // logic to go to next pageSelectMeat
   }
 });
