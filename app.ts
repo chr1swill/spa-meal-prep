@@ -75,6 +75,24 @@ const selectButtons: HTMLButtonElement[] = [
   selectOther,
 ];
 
+let numberOfDays: number  = 0;
+
+function getNumberOfDays(): number {
+  return numberOfDays
+}
+
+function setNumberOfDays(ammountOfDays: number): void {
+  numberOfDays = ammountOfDays;
+}
+
+function daysPlusOne(): void {
+  numberOfDays++
+}
+
+function daysMinusOne(): void {
+  numberOfDays--
+}
+
 function setPageHidden(page: HTMLElement): void {
   page.style.display = "none";
   page.setAttribute("aria-hidden", "true");
@@ -140,7 +158,6 @@ selectButtons.forEach((button) => {
 
 confirmMeatPage.addEventListener("click", (e) => {
   e.preventDefault();
-
   let chosenButton;
   for (let button of selectButtons) {
     if (button.classList.contains("selected")) {
@@ -178,7 +195,6 @@ inputMeatQuantity.addEventListener("paste", function (event) {
 
 inputMeatQuantity.addEventListener("input", function (e) {
   e.preventDefault();
-
   const inputLabel = document.querySelector(
     "#labelForMeatQuantity"
   ) as HTMLElement;
@@ -196,7 +212,6 @@ inputMeatQuantity.addEventListener("input", function (e) {
 
 confirmQuantityPage.addEventListener("click", (e) => {
   e.preventDefault();
-
   if (inputMeatQuantity.value == null) {
     const error = createErrorMsg(
       "Error: Input can not be null, add a quantity of meat"
@@ -218,18 +233,15 @@ confirmQuantityPage.addEventListener("click", (e) => {
 
 backBtnOnQuantity.addEventListener("click", (e) => {
   e.preventDefault();
-
   pageHidePageShow(pageSelectQuantity, pageSelectMeat);
 });
 
 backBtnOnDays.addEventListener("click", (e) => {
   e.preventDefault();
-
   pageHidePageShow(pageSelectDays, pageSelectQuantity);
 });
 
 backBtnOnResult.addEventListener("click", (e) => {
   e.preventDefault();
-
   pageHidePageShow(pageTotalResult, pageSelectDays);
 });
