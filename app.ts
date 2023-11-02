@@ -77,7 +77,7 @@ const selectButtons: HTMLButtonElement[] = [
 
 let numberOfDays: number = 0;
 
-incrementorInput.value = numberOfDays.toString();
+// incrementorInput.value = numberOfDays.toString();
 
 function getNumberOfDays(): number {
   return numberOfDays;
@@ -252,10 +252,42 @@ incrementorBtnPlus?.addEventListener("click", (e) => {
   e.preventDefault();
   daysPlusOne();
   incrementorInput.value = numberOfDays.toString();
+  if (numberOfDays > 0) {
+    document.querySelector(".error-msg")?.remove();
+  }
 });
 
 incrementorBtnMinus?.addEventListener("click", (e) => {
   e.preventDefault();
   daysMinusOne();
   incrementorInput.value = numberOfDays.toString();
+  if (numberOfDays > 0) {
+    document.querySelector(".error-msg")?.remove();
+  }
+});
+
+incrementorInput.addEventListener("input", (e) => {
+  const target = e.target as HTMLInputElement;
+  const inputValue = parseInt(target.value);
+  if (!isNaN(inputValue)) {
+    document.querySelector(".error-msg")?.remove();
+    numberOfDays = inputValue;
+  }
+});
+
+confirmDaysPage.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (numberOfDays <= 0) {
+    console.error(
+      numberOfDays,
+      "Value of days needs to be a number greater than zero"
+    );
+    const error = createErrorMsg(
+      "Error: Value of days needs to be a number greater than zero"
+    );
+    confirmDaysPage.insertAdjacentElement("afterend", error);
+  } else {
+    // calc logic
+    pageHidePageShow(pageSelectDays, pageTotalResult);
+  }
 });

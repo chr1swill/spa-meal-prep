@@ -30,7 +30,7 @@ const selectButtons = [
     selectOther,
 ];
 let numberOfDays = 0;
-incrementorInput.value = numberOfDays.toString();
+// incrementorInput.value = numberOfDays.toString();
 function getNumberOfDays() {
     return numberOfDays;
 }
@@ -173,12 +173,41 @@ backBtnOnResult.addEventListener("click", (e) => {
     pageHidePageShow(pageTotalResult, pageSelectDays);
 });
 incrementorBtnPlus === null || incrementorBtnPlus === void 0 ? void 0 : incrementorBtnPlus.addEventListener("click", (e) => {
+    var _a;
     e.preventDefault();
     daysPlusOne();
     incrementorInput.value = numberOfDays.toString();
+    if (numberOfDays > 0) {
+        (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
+    }
 });
 incrementorBtnMinus === null || incrementorBtnMinus === void 0 ? void 0 : incrementorBtnMinus.addEventListener("click", (e) => {
+    var _a;
     e.preventDefault();
     daysMinusOne();
     incrementorInput.value = numberOfDays.toString();
+    if (numberOfDays > 0) {
+        (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
+    }
+});
+incrementorInput.addEventListener("input", (e) => {
+    var _a;
+    const target = e.target;
+    const inputValue = parseInt(target.value);
+    if (!isNaN(inputValue)) {
+        (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
+        numberOfDays = inputValue;
+    }
+});
+confirmDaysPage.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (numberOfDays <= 0) {
+        console.error(numberOfDays, "Value of days needs to be a number greater than zero");
+        const error = createErrorMsg("Error: Value of days needs to be a number greater than zero");
+        confirmDaysPage.insertAdjacentElement("afterend", error);
+    }
+    else {
+        // calc logic
+        pageHidePageShow(pageSelectDays, pageTotalResult);
+    }
 });
