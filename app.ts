@@ -247,3 +247,15 @@ backBtnOnResult.addEventListener("click", (e) => {
   e.preventDefault();
   pageHidePageShow(pageTotalResult, pageSelectDays);
 });
+
+incrementorBtnPlus?.addEventListener("click", (e) => {
+  e.preventDefault();
+  daysPlusOne();
+  incrementorInput.value = numberOfDays.toString();
+});
+
+incrementorBtnMinus?.addEventListener("click", (e) => {
+  e.preventDefault();
+  daysMinusOne();
+  incrementorInput.value = numberOfDays.toString();
+});

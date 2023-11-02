@@ -172,3 +172,13 @@ backBtnOnResult.addEventListener("click", (e) => {
     e.preventDefault();
     pageHidePageShow(pageTotalResult, pageSelectDays);
 });
+incrementorBtnPlus === null || incrementorBtnPlus === void 0 ? void 0 : incrementorBtnPlus.addEventListener("click", (e) => {
+    e.preventDefault();
+    daysPlusOne();
+    incrementorInput.value = numberOfDays.toString();
+});
+incrementorBtnMinus === null || incrementorBtnMinus === void 0 ? void 0 : incrementorBtnMinus.addEventListener("click", (e) => {
+    e.preventDefault();
+    daysMinusOne();
+    incrementorInput.value = numberOfDays.toString();
+});
