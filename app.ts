@@ -120,6 +120,16 @@ function createErrorMsg(text: string): HTMLElement {
   return errorMsg;
 }
 
+function insertErrorMsg(
+  createdErrorMsg: HTMLElement,
+  where: HTMLElement
+): void {
+  const errorInDom = document.querySelector(".error-msg");
+  if (!errorInDom) {
+    where.insertAdjacentElement("afterend", createdErrorMsg);
+  }
+}
+
 function strToArr(string: string): string[] {
   const trimmedStr = string.trim();
   return trimmedStr.split(/[ ,]+/);
@@ -168,11 +178,10 @@ confirmMeatPage.addEventListener("click", (e) => {
     }
   }
   if (!chosenButton) {
-    const error = createErrorMsg(
-      "Error: A selection needs to be made to continue."
-    );
-    confirmMeatPage.insertAdjacentElement("afterend", error);
-    console.error("Error: A selection needs to be made to continue.");
+    const error = "Error: A selection needs to be made to continue.";
+    const createdError = createErrorMsg(error);
+    insertErrorMsg(createdError, confirmMeatPage);
+    console.error(error);
   } else {
     pageHidePageShow(pageSelectMeat, pageSelectQuantity);
   }
@@ -208,26 +217,22 @@ inputMeatQuantity.addEventListener("input", function (e) {
       "calc((var(--input-container-height) - var(--TEXT_BOX_HEIGHT)) / 2)";
     inputLabel.style.fontSize = "18px";
   }
-  const errorMsg = document.querySelector(".error-msg");
-  errorMsg?.remove();
+  document.querySelector(".error-msg")?.remove();
 });
 
 confirmQuantityPage.addEventListener("click", (e) => {
   e.preventDefault();
   if (inputMeatQuantity.value == null) {
-    const error = createErrorMsg(
-      "Error: Input can not be null, add a quantity of meat"
-    );
-    confirmQuantityPage.insertAdjacentElement("afterend", error);
-    console.error("Error: Input can not be null, add a quantity of meat");
+    const error = "Error: Input can not be null, add a quantity of meat";
+    const createdError = createErrorMsg(error);
+    insertErrorMsg(createdError, confirmQuantityPage);
+    console.error(error);
   } else if (!/[0-9]/.test(inputMeatQuantity.value)) {
-    const error = createErrorMsg(
-      "Error: Input need to contain numbers, add the number of grams of meat"
-    );
-    confirmQuantityPage.insertAdjacentElement("afterend", error);
-    console.error(
-      "Error: Input need to contain numbers, add the number of grams of meat"
-    );
+    const error =
+      "Error: Input need to contain numbers, add the number of grams of meat";
+    const createdError = createErrorMsg(error);
+    insertErrorMsg(createdError, confirmQuantityPage);
+    console.error(error);
   } else {
     pageHidePageShow(pageSelectQuantity, pageSelectDays);
   }
@@ -278,14 +283,10 @@ incrementorInput.addEventListener("input", (e) => {
 confirmDaysPage.addEventListener("click", (e) => {
   e.preventDefault();
   if (numberOfDays <= 0) {
-    console.error(
-      numberOfDays,
-      "Value of days needs to be a number greater than zero"
-    );
-    const error = createErrorMsg(
-      "Error: Value of days needs to be a number greater than zero"
-    );
-    confirmDaysPage.insertAdjacentElement("afterend", error);
+    const error = "Error: Value of days needs to be a number greater than zero";
+    const createdError = createErrorMsg(error);
+    insertErrorMsg(createdError, confirmDaysPage);
+    console.error(error);
   } else {
     // calc logic
     pageHidePageShow(pageSelectDays, pageTotalResult);
