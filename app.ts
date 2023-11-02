@@ -75,22 +75,22 @@ const selectButtons: HTMLButtonElement[] = [
   selectOther,
 ];
 
-let numberOfDays: number  = 0;
+let numberOfDays: number = 0;
 
 function getNumberOfDays(): number {
-  return numberOfDays
+  return numberOfDays;
 }
 
-function setNumberOfDays(ammountOfDays: number): void {
-  numberOfDays = ammountOfDays;
+function setNumberOfDays(amountOfDays: number): void {
+  numberOfDays = amountOfDays;
 }
 
 function daysPlusOne(): void {
-  numberOfDays++
+  numberOfDays++;
 }
 
 function daysMinusOne(): void {
-  numberOfDays--
+  numberOfDays--;
 }
 
 function setPageHidden(page: HTMLElement): void {
