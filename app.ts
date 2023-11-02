@@ -77,6 +77,8 @@ const selectButtons: HTMLButtonElement[] = [
 
 let numberOfDays: number = 0;
 
+incrementorInput.value = numberOfDays.toString();
+
 function getNumberOfDays(): number {
   return numberOfDays;
 }
