@@ -90,8 +90,8 @@ function sumOfStringArray(string) {
     const arrayOfNumbers = arrOfStrToNums(arrayOfStrings);
     return arrayTotal(arrayOfNumbers);
 }
-function ammoutPerDay(ammout, days) {
-    return ammout / days;
+function amountPerDay(amount, days) {
+    return amount / days;
 }
 selectButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -229,7 +229,7 @@ confirmDaysPage.addEventListener("click", (e) => {
         pageHidePageShow(pageSelectDays, pageTotalResult);
         const totalMeat = sumOfStringArray(inputMeatQuantity.value);
         const totalDays = numberOfDays.toString();
-        const meatDaily = ammoutPerDay(totalMeat, numberOfDays);
+        const meatDaily = amountPerDay(totalMeat, numberOfDays);
         const selectedMeat = document.querySelector(".selected");
         resultTotalMeat.innerText = totalMeat.toString();
         resultTotalDays.innerText = totalDays.toString();
@@ -242,14 +242,14 @@ confirmDaysPage.addEventListener("click", (e) => {
                 resultProteinDaily.innerText = (meatDaily * PROTEIN_PER_GRAM_CHICKEN_BREAST).toString();
             }
             else {
-                let userSelectProtienPerGram;
-                while (isNaN(Number(userSelectProtienPerGram))) {
-                    userSelectProtienPerGram = prompt("Please enter the protein per a gram in you meat");
-                    if (isNaN(Number(userSelectProtienPerGram))) {
+                let userSelectProteinPerGram;
+                while (isNaN(Number(userSelectProteinPerGram))) {
+                    userSelectProteinPerGram = prompt("Please enter the protein per a gram in you meat");
+                    if (isNaN(Number(userSelectProteinPerGram))) {
                         console.error("Provided input is NaN, value needs to be a number");
                     }
                 }
-                resultProteinDaily.innerText = (meatDaily * Number(userSelectProtienPerGram)).toString();
+                resultProteinDaily.innerText = (meatDaily * Number(userSelectProteinPerGram)).toString();
             }
         }
         else {

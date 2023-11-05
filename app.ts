@@ -136,11 +136,11 @@ function strToArr(string: string): string[] {
 }
 
 function arrOfStrToNums(array: string[]): number[] {
- const arrOfNums = [];
- for (let i = 0; i < array.length; i++) {
-   arrOfNums.push(parseInt(array[i]));
- }
- return arrOfNums;
+  const arrOfNums = [];
+  for (let i = 0; i < array.length; i++) {
+    arrOfNums.push(parseInt(array[i]));
+  }
+  return arrOfNums;
 }
 
 function arrayTotal(array: number[]) {
@@ -152,13 +152,13 @@ function arrayTotal(array: number[]) {
 }
 
 function sumOfStringArray(string: string): number {
-  const arrayOfStrings = strToArr(string)
-  const arrayOfNumbers = arrOfStrToNums(arrayOfStrings)
-  return arrayTotal(arrayOfNumbers)
+  const arrayOfStrings = strToArr(string);
+  const arrayOfNumbers = arrOfStrToNums(arrayOfStrings);
+  return arrayTotal(arrayOfNumbers);
 }
 
-function ammoutPerDay(ammout: number, days: number): number {
-  return ammout / days 
+function amountPerDay(amount: number, days: number): number {
+  return amount / days;
 }
 
 selectButtons.forEach((button) => {
@@ -302,33 +302,39 @@ confirmDaysPage.addEventListener("click", (e) => {
     pageHidePageShow(pageSelectDays, pageTotalResult);
     const totalMeat = sumOfStringArray(inputMeatQuantity.value);
     const totalDays = numberOfDays.toString();
-    const meatDaily = ammoutPerDay(totalMeat, numberOfDays);
+    const meatDaily = amountPerDay(totalMeat, numberOfDays);
     const selectedMeat = document.querySelector(".selected");
- 
+
     resultTotalMeat.innerText = totalMeat.toString();
     resultTotalDays.innerText = totalDays.toString();
     resultMeatDaily.innerText = meatDaily.toString();
- 
+
     if (selectedMeat) {
       if (selectedMeat == selectTopSirloin) {
-        resultProteinDaily.innerText = (meatDaily * PROTEIN_PER_GRAM_TOP_SIRLOIN).toString();
+        resultProteinDaily.innerText = (
+          meatDaily * PROTEIN_PER_GRAM_TOP_SIRLOIN
+        ).toString();
       } else if (selectedMeat == selectChickenBreast) {
-        resultProteinDaily.innerText = (meatDaily * PROTEIN_PER_GRAM_CHICKEN_BREAST).toString();
+        resultProteinDaily.innerText = (
+          meatDaily * PROTEIN_PER_GRAM_CHICKEN_BREAST
+        ).toString();
       } else {
-        let userSelectProtienPerGram;
+        let userSelectProteinPerGram;
 
-while (isNaN(Number(userSelectProtienPerGram))) {
-  userSelectProtienPerGram = prompt("Please enter the protein per a gram in you meat");
-  if (isNaN(Number(userSelectProtienPerGram))) {
-    console.error("Provided input is NaN, value needs to be a number");
-  }
-}
-resultProteinDaily.innerText = (meatDaily * Number(userSelectProtienPerGram)).toString();
-
+        while (isNaN(Number(userSelectProteinPerGram))) {
+          userSelectProteinPerGram = prompt(
+            "Please enter the protein per a gram in you meat"
+          );
+          if (isNaN(Number(userSelectProteinPerGram))) {
+            console.error("Provided input is NaN, value needs to be a number");
+          }
+        }
+        resultProteinDaily.innerText = (
+          meatDaily * Number(userSelectProteinPerGram)
+        ).toString();
       }
     } else {
       console.error("Error: No meat selection was made.");
     }
   }
- });
- 
+});
