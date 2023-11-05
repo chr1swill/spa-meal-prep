@@ -56,13 +56,11 @@ const backBtnOnResult = document.querySelector(
 ) as HTMLButtonElement;
 
 // selector for the incrementor
-const incrementorInput = document.querySelector(
-  "[data-input-incrementor]"
-) as HTMLInputElement;
-const incrementorBtnMinus = document.querySelector(
+const incrementorInput = document.querySelectorAll("[data-input-incrementor]");
+const incrementorBtnMinus = document.querySelectorAll(
   '[data-button-incrementor="left"]'
-) as HTMLButtonElement;
-const incrementorBtnPlus = document.querySelector(
+);
+const incrementorBtnPlus = document.querySelectorAll(
   '[data-button-incrementor="right"]'
 );
 

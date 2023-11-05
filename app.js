@@ -19,9 +19,9 @@ const resultMeatDaily = document.querySelector("#resultMeatDaily");
 const confirmResultPage = document.querySelector('[data-button-confirm="pageResult"]');
 const backBtnOnResult = document.querySelector('[data-back-button="pageResult"]');
 // selector for the incrementor
-const incrementorInput = document.querySelector("[data-input-incrementor]");
-const incrementorBtnMinus = document.querySelector('[data-button-incrementor="left"]');
-const incrementorBtnPlus = document.querySelector('[data-button-incrementor="right"]');
+const incrementorInput = document.querySelectorAll("[data-input-incrementor]");
+const incrementorBtnMinus = document.querySelectorAll('[data-button-incrementor="left"]');
+const incrementorBtnPlus = document.querySelectorAll('[data-button-incrementor="right"]');
 const PROTEIN_PER_GRAM_TOP_SIRLOIN = 0.27;
 const PROTEIN_PER_GRAM_CHICKEN_BREAST = 0.32;
 const selectButtons = [
