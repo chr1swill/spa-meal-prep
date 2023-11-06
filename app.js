@@ -140,6 +140,31 @@ function assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily) {
         console.error("Error: No meat selection was made.");
     }
 }
+function updateResultCard(renderTotalDays) {
+    if (numberOfDays <= 0) {
+        const error = "Error: Value of days needs to be a number greater than zero";
+        const createdError = createErrorMsg(error);
+        insertErrorMsg(createdError, confirmDaysPage);
+        console.error(error);
+    }
+    else {
+        pageHidePageShow(pageSelectDays, pageTotalResult);
+        const totalMeat = sumOfStringArray(inputMeatQuantity.value);
+        const totalDays = numberOfDays.toString();
+        const meatDaily = amountPerDay(totalMeat, numberOfDays);
+        const selectedMeat = document.querySelector(".selected");
+        if (renderTotalDays) {
+            displayResultsInCardExpectProteinDaily(numberOfDays, meatDaily, totalMeat);
+        }
+        else {
+            displayResultsInCardExpectProteinDaily(numberOfDays, meatDaily);
+        }
+        assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily);
+        if (incrementorInputResult) {
+            incrementorInputResult.value = totalDays;
+        }
+    }
+}
 selectButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         e.preventDefault();
@@ -235,6 +260,9 @@ backBtnOnDays.addEventListener("click", (e) => {
 });
 backBtnOnResult.addEventListener("click", (e) => {
     e.preventDefault();
+    if (incrementorInputDays) {
+        incrementorInputDays.value = numberOfDays.toString();
+    }
     pageHidePageShow(pageTotalResult, pageSelectDays);
 });
 incrementorBtnPlusDays === null || incrementorBtnPlusDays === void 0 ? void 0 : incrementorBtnPlusDays.addEventListener("click", (e) => {
@@ -260,11 +288,13 @@ incrementorBtnPlusResult === null || incrementorBtnPlusResult === void 0 ? void 
     e.preventDefault();
     daysPlusOne();
     updateInputValue(incrementorInputResult);
+    updateResultCard();
 });
 incrementorBtnMinusResult === null || incrementorBtnMinusResult === void 0 ? void 0 : incrementorBtnMinusResult.addEventListener("click", (e) => {
     e.preventDefault();
     daysMinusOne();
     updateInputValue(incrementorInputResult);
+    updateResultCard();
 });
 incrementorInputResult === null || incrementorInputResult === void 0 ? void 0 : incrementorInputResult.addEventListener("input", (e) => {
     var _a;
@@ -273,26 +303,10 @@ incrementorInputResult === null || incrementorInputResult === void 0 ? void 0 : 
     if (!isNaN(inputValue)) {
         (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
         numberOfDays = inputValue;
+        updateResultCard();
     }
 });
 confirmDaysPage.addEventListener("click", (e) => {
     e.preventDefault();
-    if (numberOfDays <= 0) {
-        const error = "Error: Value of days needs to be a number greater than zero";
-        const createdError = createErrorMsg(error);
-        insertErrorMsg(createdError, confirmDaysPage);
-        console.error(error);
-    }
-    else {
-        pageHidePageShow(pageSelectDays, pageTotalResult);
-        const totalMeat = sumOfStringArray(inputMeatQuantity.value);
-        const totalDays = numberOfDays.toString();
-        const meatDaily = amountPerDay(totalMeat, numberOfDays);
-        const selectedMeat = document.querySelector(".selected");
-        displayResultsInCardExpectProteinDaily(numberOfDays, meatDaily, totalMeat);
-        if (incrementorInputResult) {
-            incrementorInputResult.value = totalDays;
-        }
-        assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily);
-    }
+    updateResultCard(true);
 });
