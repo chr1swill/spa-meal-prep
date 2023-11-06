@@ -166,6 +166,15 @@ function amountPerDay(amount: number, days: number): number {
   return amount / days;
 }
 
+function updateInputValue(): void {
+  if (incrementorInputDays) {
+    incrementorInputDays.value = numberOfDays.toString();
+  }
+  if (numberOfDays > 0) {
+    document.querySelector(".error-msg")?.remove();
+  }
+}
+
 selectButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -272,26 +281,37 @@ backBtnOnResult.addEventListener("click", (e) => {
 incrementorBtnPlusDays?.addEventListener("click", (e) => {
   e.preventDefault();
   daysPlusOne();
-  if (incrementorInputDays) {
-    incrementorInputDays.value = numberOfDays.toString();
-  }
-  if (numberOfDays > 0) {
-    document.querySelector(".error-msg")?.remove();
-  }
+  updateInputValue();
 });
 
 incrementorBtnMinusDays?.addEventListener("click", (e) => {
   e.preventDefault();
   daysMinusOne();
-  if (incrementorInputDays) {
-    incrementorInputDays.value = numberOfDays.toString();
-  }
-  if (numberOfDays > 0) {
-    document.querySelector(".error-msg")?.remove();
-  }
+  updateInputValue();
 });
 
 incrementorInputDays?.addEventListener("input", (e) => {
+  const target = e.target as HTMLInputElement;
+  const inputValue = parseInt(target.value);
+  if (!isNaN(inputValue)) {
+    document.querySelector(".error-msg")?.remove();
+    numberOfDays = inputValue;
+  }
+});
+
+incrementorBtnPlusResult?.addEventListener("click", (e) => {
+  e.preventDefault();
+  daysPlusOne();
+  updateInputValue();
+});
+
+incrementorBtnMinusResult?.addEventListener("click", (e) => {
+  e.preventDefault();
+  daysMinusOne();
+  updateInputValue();
+});
+
+incrementorInputResult?.addEventListener("input", (e) => {
   const target = e.target as HTMLInputElement;
   const inputValue = parseInt(target.value);
   if (!isNaN(inputValue)) {
@@ -317,6 +337,9 @@ confirmDaysPage.addEventListener("click", (e) => {
     resultTotalMeat.innerText = totalMeat.toString();
     resultTotalDays.innerText = totalDays.toString();
     resultMeatDaily.innerText = meatDaily.toString();
+    if (incrementorInputResult) {
+      incrementorInputResult.value = numberOfDays.toString();
+    }
 
     if (selectedMeat) {
       if (selectedMeat == selectTopSirloin) {
