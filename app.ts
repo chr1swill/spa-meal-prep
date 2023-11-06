@@ -176,11 +176,13 @@ function updateInputValue(input: HTMLInputElement | null): void {
 }
 
 function displayResultsInCardExpectProteinDaily(
-  totalMeat: number,
   totalDays: number,
-  meatDaily: number
+  meatDaily: number,
+  totalMeat?: number
 ): void {
-  resultTotalMeat.innerText = totalMeat.toString();
+  if (totalMeat) {
+    resultTotalMeat.innerText = totalMeat.toString();
+  }
   resultTotalDays.innerText = totalDays.toString();
   resultMeatDaily.innerText = meatDaily.toString();
 }
@@ -199,6 +201,36 @@ function promptUserForProteinPerGram(meatDaily: number): void {
   resultProteinDaily.innerText = (
     meatDaily * Number(userSelectProteinPerGram)
   ).toString();
+}
+
+function calculateProteinDaily(
+  meatDaily: number,
+  proteinPerGramOfMeat: number
+): number {
+  return meatDaily * proteinPerGramOfMeat;
+}
+
+function assignCorrectProteinValueForSelectedMeat(
+  selectedMeat: Element | null,
+  meatDaily: number
+) {
+  if (selectedMeat) {
+    if (selectedMeat == selectTopSirloin) {
+      resultProteinDaily.innerText = calculateProteinDaily(
+        meatDaily,
+        PROTEIN_PER_GRAM_TOP_SIRLOIN
+      ).toString();
+    } else if (selectedMeat == selectChickenBreast) {
+      resultProteinDaily.innerText = calculateProteinDaily(
+        meatDaily,
+        PROTEIN_PER_GRAM_CHICKEN_BREAST
+      ).toString();
+    } else {
+      promptUserForProteinPerGram(meatDaily);
+    }
+  } else {
+    console.error("Error: No meat selection was made.");
+  }
 }
 
 selectButtons.forEach((button) => {
@@ -364,21 +396,6 @@ confirmDaysPage.addEventListener("click", (e) => {
     if (incrementorInputResult) {
       incrementorInputResult.value = totalDays;
     }
-
-    if (selectedMeat) {
-      if (selectedMeat == selectTopSirloin) {
-        resultProteinDaily.innerText = (
-          meatDaily * PROTEIN_PER_GRAM_TOP_SIRLOIN
-        ).toString();
-      } else if (selectedMeat == selectChickenBreast) {
-        resultProteinDaily.innerText = (
-          meatDaily * PROTEIN_PER_GRAM_CHICKEN_BREAST
-        ).toString();
-      } else {
-        promptUserForProteinPerGram(meatDaily);
-      }
-    } else {
-      console.error("Error: No meat selection was made.");
-    }
+    assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily);
   }
 });

@@ -104,8 +104,10 @@ function updateInputValue(input) {
         (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 }
-function displayResultsInCardExpectProteinDaily(totalMeat, totalDays, meatDaily) {
-    resultTotalMeat.innerText = totalMeat.toString();
+function displayResultsInCardExpectProteinDaily(totalDays, meatDaily, totalMeat) {
+    if (totalMeat) {
+        resultTotalMeat.innerText = totalMeat.toString();
+    }
     resultTotalDays.innerText = totalDays.toString();
     resultMeatDaily.innerText = meatDaily.toString();
 }
@@ -118,6 +120,25 @@ function promptUserForProteinPerGram(meatDaily) {
         }
     }
     resultProteinDaily.innerText = (meatDaily * Number(userSelectProteinPerGram)).toString();
+}
+function calculateProteinDaily(meatDaily, proteinPerGramOfMeat) {
+    return meatDaily * proteinPerGramOfMeat;
+}
+function assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily) {
+    if (selectedMeat) {
+        if (selectedMeat == selectTopSirloin) {
+            resultProteinDaily.innerText = calculateProteinDaily(meatDaily, PROTEIN_PER_GRAM_TOP_SIRLOIN).toString();
+        }
+        else if (selectedMeat == selectChickenBreast) {
+            resultProteinDaily.innerText = calculateProteinDaily(meatDaily, PROTEIN_PER_GRAM_CHICKEN_BREAST).toString();
+        }
+        else {
+            promptUserForProteinPerGram(meatDaily);
+        }
+    }
+    else {
+        console.error("Error: No meat selection was made.");
+    }
 }
 selectButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -272,19 +293,6 @@ confirmDaysPage.addEventListener("click", (e) => {
         if (incrementorInputResult) {
             incrementorInputResult.value = totalDays;
         }
-        if (selectedMeat) {
-            if (selectedMeat == selectTopSirloin) {
-                resultProteinDaily.innerText = (meatDaily * PROTEIN_PER_GRAM_TOP_SIRLOIN).toString();
-            }
-            else if (selectedMeat == selectChickenBreast) {
-                resultProteinDaily.innerText = (meatDaily * PROTEIN_PER_GRAM_CHICKEN_BREAST).toString();
-            }
-            else {
-                promptUserForProteinPerGram(meatDaily);
-            }
-        }
-        else {
-            console.error("Error: No meat selection was made.");
-        }
+        assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily);
     }
 });
