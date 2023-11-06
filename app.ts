@@ -190,12 +190,25 @@ function displayResultsInCardExpectProteinDaily(
 function promptUserForProteinPerGram(meatDaily: number): void {
   let userSelectProteinPerGram;
 
-  while (isNaN(Number(userSelectProteinPerGram))) {
+  while (
+    isNaN(Number(userSelectProteinPerGram)) ||
+    Number(userSelectProteinPerGram) <= 0 ||
+    userSelectProteinPerGram == null ||
+    userSelectProteinPerGram == undefined
+  ) {
     userSelectProteinPerGram = prompt(
-      "Please enter the protein per a gram in you meat"
+      "Please enter the protein per a gram in you meat."
     );
     if (isNaN(Number(userSelectProteinPerGram))) {
-      console.error("Provided input is NaN, value needs to be a number");
+      console.error("Provided input is NaN, value needs to be a number.");
+    } else if (Number(userSelectProteinPerGram) <= 0) {
+      console.error(
+        "Provided input in less than or equal to 0, the value need to be greater than 0."
+      );
+    } else if (userSelectProteinPerGram == null) {
+      console.error("Provided input is null, please provide a number.");
+    } else if (userSelectProteinPerGram == undefined) {
+      console.error("Provided input is undefined, please provide a number.");
     }
   }
   resultProteinDaily.innerText = (
