@@ -375,19 +375,7 @@ confirmDaysPage.addEventListener("click", (e) => {
           meatDaily * PROTEIN_PER_GRAM_CHICKEN_BREAST
         ).toString();
       } else {
-        let userSelectProteinPerGram;
-
-        while (isNaN(Number(userSelectProteinPerGram))) {
-          userSelectProteinPerGram = prompt(
-            "Please enter the protein per a gram in you meat"
-          );
-          if (isNaN(Number(userSelectProteinPerGram))) {
-            console.error("Provided input is NaN, value needs to be a number");
-          }
-        }
-        resultProteinDaily.innerText = (
-          meatDaily * Number(userSelectProteinPerGram)
-        ).toString();
+        promptUserForProteinPerGram(meatDaily);
       }
     } else {
       console.error("Error: No meat selection was made.");
