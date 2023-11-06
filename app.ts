@@ -166,9 +166,9 @@ function amountPerDay(amount: number, days: number): number {
   return amount / days;
 }
 
-function updateInputValue(): void {
-  if (incrementorInputDays) {
-    incrementorInputDays.value = numberOfDays.toString();
+function updateInputValue(input: HTMLInputElement | null): void {
+  if (input) {
+    input.value = numberOfDays.toString();
   }
   if (numberOfDays > 0) {
     document.querySelector(".error-msg")?.remove();
@@ -281,13 +281,13 @@ backBtnOnResult.addEventListener("click", (e) => {
 incrementorBtnPlusDays?.addEventListener("click", (e) => {
   e.preventDefault();
   daysPlusOne();
-  updateInputValue();
+  updateInputValue(incrementorInputDays);
 });
 
 incrementorBtnMinusDays?.addEventListener("click", (e) => {
   e.preventDefault();
   daysMinusOne();
-  updateInputValue();
+  updateInputValue(incrementorInputDays);
 });
 
 incrementorInputDays?.addEventListener("input", (e) => {
@@ -302,13 +302,13 @@ incrementorInputDays?.addEventListener("input", (e) => {
 incrementorBtnPlusResult?.addEventListener("click", (e) => {
   e.preventDefault();
   daysPlusOne();
-  updateInputValue();
+  updateInputValue(incrementorInputResult);
 });
 
 incrementorBtnMinusResult?.addEventListener("click", (e) => {
   e.preventDefault();
   daysMinusOne();
-  updateInputValue();
+  updateInputValue(incrementorInputResult);
 });
 
 incrementorInputResult?.addEventListener("input", (e) => {

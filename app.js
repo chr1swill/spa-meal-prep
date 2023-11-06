@@ -95,10 +95,10 @@ function sumOfStringArray(string) {
 function amountPerDay(amount, days) {
     return amount / days;
 }
-function updateInputValue() {
+function updateInputValue(input) {
     var _a;
-    if (incrementorInputDays) {
-        incrementorInputDays.value = numberOfDays.toString();
+    if (input) {
+        input.value = numberOfDays.toString();
     }
     if (numberOfDays > 0) {
         (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
@@ -204,12 +204,12 @@ backBtnOnResult.addEventListener("click", (e) => {
 incrementorBtnPlusDays === null || incrementorBtnPlusDays === void 0 ? void 0 : incrementorBtnPlusDays.addEventListener("click", (e) => {
     e.preventDefault();
     daysPlusOne();
-    updateInputValue();
+    updateInputValue(incrementorInputDays);
 });
 incrementorBtnMinusDays === null || incrementorBtnMinusDays === void 0 ? void 0 : incrementorBtnMinusDays.addEventListener("click", (e) => {
     e.preventDefault();
     daysMinusOne();
-    updateInputValue();
+    updateInputValue(incrementorInputDays);
 });
 incrementorInputDays === null || incrementorInputDays === void 0 ? void 0 : incrementorInputDays.addEventListener("input", (e) => {
     var _a;
@@ -223,12 +223,12 @@ incrementorInputDays === null || incrementorInputDays === void 0 ? void 0 : incr
 incrementorBtnPlusResult === null || incrementorBtnPlusResult === void 0 ? void 0 : incrementorBtnPlusResult.addEventListener("click", (e) => {
     e.preventDefault();
     daysPlusOne();
-    updateInputValue();
+    updateInputValue(incrementorInputResult);
 });
 incrementorBtnMinusResult === null || incrementorBtnMinusResult === void 0 ? void 0 : incrementorBtnMinusResult.addEventListener("click", (e) => {
     e.preventDefault();
     daysMinusOne();
-    updateInputValue();
+    updateInputValue(incrementorInputResult);
 });
 incrementorInputResult === null || incrementorInputResult === void 0 ? void 0 : incrementorInputResult.addEventListener("input", (e) => {
     var _a;
