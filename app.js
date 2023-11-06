@@ -104,6 +104,21 @@ function updateInputValue(input) {
         (_a = document.querySelector(".error-msg")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 }
+function displayResultsInCardExpectProteinDaily(totalMeat, totalDays, meatDaily) {
+    resultTotalMeat.innerText = totalMeat.toString();
+    resultTotalDays.innerText = totalDays.toString();
+    resultMeatDaily.innerText = meatDaily.toString();
+}
+function promptUserForProteinPerGram(meatDaily) {
+    let userSelectProteinPerGram;
+    while (isNaN(Number(userSelectProteinPerGram))) {
+        userSelectProteinPerGram = prompt("Please enter the protein per a gram in you meat");
+        if (isNaN(Number(userSelectProteinPerGram))) {
+            console.error("Provided input is NaN, value needs to be a number");
+        }
+    }
+    resultProteinDaily.innerText = (meatDaily * Number(userSelectProteinPerGram)).toString();
+}
 selectButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         e.preventDefault();
@@ -253,11 +268,9 @@ confirmDaysPage.addEventListener("click", (e) => {
         const totalDays = numberOfDays.toString();
         const meatDaily = amountPerDay(totalMeat, numberOfDays);
         const selectedMeat = document.querySelector(".selected");
-        resultTotalMeat.innerText = totalMeat.toString();
-        resultTotalDays.innerText = totalDays.toString();
-        resultMeatDaily.innerText = meatDaily.toString();
+        displayResultsInCardExpectProteinDaily(totalMeat, numberOfDays, meatDaily);
         if (incrementorInputResult) {
-            incrementorInputResult.value = numberOfDays.toString();
+            incrementorInputResult.value = totalDays;
         }
         if (selectedMeat) {
             if (selectedMeat == selectTopSirloin) {
