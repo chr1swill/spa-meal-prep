@@ -66,7 +66,7 @@ const incrementorBtnPlusDays: HTMLButtonElement | null = document.querySelector(
 );
 
 const incrementorInputResult: HTMLInputElement | null = document.querySelector(
-  "#pagesTotalResult [data-input-incrementor]"
+  "#pageTotalResult [data-input-incrementor]"
 );
 const incrementorBtnMinusResult: HTMLButtonElement | null =
   document.querySelector('#pageTotalResult [data-button-incrementor="left"]');

@@ -22,7 +22,7 @@ const backBtnOnResult = document.querySelector('[data-back-button="pageResult"]'
 const incrementorInputDays = document.querySelector("#pageSelectDays [data-input-incrementor]");
 const incrementorBtnMinusDays = document.querySelector('#pageSelectDays [data-button-incrementor="left"]');
 const incrementorBtnPlusDays = document.querySelector('#pageSelectDays [data-button-incrementor="right"]');
-const incrementorInputResult = document.querySelector("#pagesTotalResult [data-input-incrementor]");
+const incrementorInputResult = document.querySelector("#pageTotalResult [data-input-incrementor]");
 const incrementorBtnMinusResult = document.querySelector('#pageTotalResult [data-button-incrementor="left"]');
 const incrementorBtnPlusResult = document.querySelector('#pageTotalResult [data-button-incrementor="right"]');
 const PROTEIN_PER_GRAM_TOP_SIRLOIN = 0.27;
