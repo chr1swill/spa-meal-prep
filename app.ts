@@ -56,13 +56,22 @@ const backBtnOnResult = document.querySelector(
 ) as HTMLButtonElement;
 
 // selector for the incrementor
-const incrementorInput = document.querySelectorAll("[data-input-incrementor]");
-const incrementorBtnMinus = document.querySelectorAll(
-  '[data-button-incrementor="left"]'
+const incrementorInputDays: HTMLInputElement | null = document.querySelector(
+  "#pageSelectDays [data-input-incrementor]"
 );
-const incrementorBtnPlus = document.querySelectorAll(
-  '[data-button-incrementor="right"]'
+const incrementorBtnMinusDays: HTMLButtonElement | null =
+  document.querySelector('#pageSelectDays [data-button-incrementor="left"]');
+const incrementorBtnPlusDays: HTMLButtonElement | null = document.querySelector(
+  '#pageSelectDays [data-button-incrementor="right"]'
 );
+
+const incrementorInputResult: HTMLInputElement | null = document.querySelector(
+  "#pagesTotalResult [data-input-incrementor]"
+);
+const incrementorBtnMinusResult: HTMLButtonElement | null =
+  document.querySelector('#pageTotalResult [data-button-incrementor="left"]');
+const incrementorBtnPlusResult: HTMLButtonElement | null =
+  document.querySelector('#pageTotalResult [data-button-incrementor="right"]');
 
 const PROTEIN_PER_GRAM_TOP_SIRLOIN: number = 0.27;
 const PROTEIN_PER_GRAM_CHICKEN_BREAST: number = 0.32;
@@ -74,8 +83,6 @@ const selectButtons: HTMLButtonElement[] = [
 ];
 
 let numberOfDays: number = 0;
-
-// incrementorInput.value = numberOfDays.toString();
 
 function getNumberOfDays(): number {
   return numberOfDays;
@@ -262,25 +269,29 @@ backBtnOnResult.addEventListener("click", (e) => {
   pageHidePageShow(pageTotalResult, pageSelectDays);
 });
 
-incrementorBtnPlus?.addEventListener("click", (e) => {
+incrementorBtnPlusDays?.addEventListener("click", (e) => {
   e.preventDefault();
   daysPlusOne();
-  incrementorInput.value = numberOfDays.toString();
+  if (incrementorInputDays) {
+    incrementorInputDays.value = numberOfDays.toString();
+  }
   if (numberOfDays > 0) {
     document.querySelector(".error-msg")?.remove();
   }
 });
 
-incrementorBtnMinus?.addEventListener("click", (e) => {
+incrementorBtnMinusDays?.addEventListener("click", (e) => {
   e.preventDefault();
   daysMinusOne();
-  incrementorInput.value = numberOfDays.toString();
+  if (incrementorInputDays) {
+    incrementorInputDays.value = numberOfDays.toString();
+  }
   if (numberOfDays > 0) {
     document.querySelector(".error-msg")?.remove();
   }
 });
 
-incrementorInput.addEventListener("input", (e) => {
+incrementorInputDays?.addEventListener("input", (e) => {
   const target = e.target as HTMLInputElement;
   const inputValue = parseInt(target.value);
   if (!isNaN(inputValue)) {
