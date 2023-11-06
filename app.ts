@@ -392,7 +392,7 @@ confirmDaysPage.addEventListener("click", (e) => {
     const meatDaily = amountPerDay(totalMeat, numberOfDays);
     const selectedMeat = document.querySelector(".selected");
 
-    displayResultsInCardExpectProteinDaily(totalMeat, numberOfDays, meatDaily);
+    displayResultsInCardExpectProteinDaily(numberOfDays, meatDaily, totalMeat);
     if (incrementorInputResult) {
       incrementorInputResult.value = totalDays;
     }
