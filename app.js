@@ -27,6 +27,7 @@ const incrementorBtnMinusResult = document.querySelector('#pageTotalResult [data
 const incrementorBtnPlusResult = document.querySelector('#pageTotalResult [data-button-incrementor="right"]');
 const PROTEIN_PER_GRAM_TOP_SIRLOIN = 0.27;
 const PROTEIN_PER_GRAM_CHICKEN_BREAST = 0.32;
+let PROTEIN_PER_GRAM_OTHER;
 const selectButtons = [
     selectTopSirloin,
     selectChickenBreast,
@@ -94,6 +95,9 @@ function sumOfStringArray(string) {
 }
 function amountPerDay(amount, days) {
     return amount / days;
+}
+function proteinPerDay(amout, protienPerGram) {
+    return amout * protienPerGram;
 }
 function updateInputValue(input) {
     var _a;

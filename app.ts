@@ -75,6 +75,7 @@ const incrementorBtnPlusResult: HTMLButtonElement | null =
 
 const PROTEIN_PER_GRAM_TOP_SIRLOIN: number = 0.27;
 const PROTEIN_PER_GRAM_CHICKEN_BREAST: number = 0.32;
+let PROTEIN_PER_GRAM_OTHER: number; 
 
 const selectButtons: HTMLButtonElement[] = [
   selectTopSirloin,
@@ -164,6 +165,12 @@ function sumOfStringArray(string: string): number {
 
 function amountPerDay(amount: number, days: number): number {
   return amount / days;
+}
+
+type ProteinPerGram = typeof PROTEIN_PER_GRAM_TOP_SIRLOIN | typeof PROTEIN_PER_GRAM_CHICKEN_BREAST | typeof PROTEIN_PER_GRAM_OTHER
+
+function proteinPerDay(amout: number, protienPerGram: ProteinPerGram) {
+    return amout * protienPerGram;
 }
 
 function updateInputValue(input: HTMLInputElement | null): void {
