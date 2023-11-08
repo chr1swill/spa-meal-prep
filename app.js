@@ -136,7 +136,7 @@ function promptUserForProteinPerGram(meatDaily) {
 function calculateProteinDaily(meatDaily, proteinPerGramOfMeat) {
     return meatDaily * proteinPerGramOfMeat;
 }
-function assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily) {
+function assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily, shouldPromptUser = false) {
     if (selectedMeat) {
         if (selectedMeat == selectTopSirloin) {
             resultProteinDaily.innerText = calculateProteinDaily(meatDaily, PROTEIN_PER_GRAM_TOP_SIRLOIN).toString();
@@ -145,14 +145,16 @@ function assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily) {
             resultProteinDaily.innerText = calculateProteinDaily(meatDaily, PROTEIN_PER_GRAM_CHICKEN_BREAST).toString();
         }
         else {
-            promptUserForProteinPerGram(meatDaily);
+            if (shouldPromptUser) {
+                promptUserForProteinPerGram(meatDaily);
+            }
         }
     }
     else {
         console.error("Error: No meat selection was made.");
     }
 }
-function updateResultCard(renderTotalDays) {
+function updateResultCard(renderTotalDays, shouldPromptUser) {
     if (numberOfDays <= 0) {
         const error = "Error: Value of days needs to be a number greater than zero";
         const createdError = createErrorMsg(error);
@@ -171,7 +173,7 @@ function updateResultCard(renderTotalDays) {
         else {
             displayResultsInCardExpectProteinDaily(numberOfDays, meatDaily);
         }
-        assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily);
+        assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily, shouldPromptUser);
         if (incrementorInputResult) {
             incrementorInputResult.value = totalDays;
         }
@@ -320,5 +322,5 @@ incrementorInputResult === null || incrementorInputResult === void 0 ? void 0 : 
 });
 confirmDaysPage.addEventListener("click", (e) => {
     e.preventDefault();
-    updateResultCard(true);
+    updateResultCard(true, true);
 });

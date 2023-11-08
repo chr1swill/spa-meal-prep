@@ -189,7 +189,6 @@ function displayResultsInCardExpectProteinDaily(
 
 function promptUserForProteinPerGram(meatDaily: number): void {
   let userSelectProteinPerGram;
-
   while (
     isNaN(Number(userSelectProteinPerGram)) ||
     Number(userSelectProteinPerGram) <= 0 ||
@@ -225,7 +224,8 @@ function calculateProteinDaily(
 
 function assignCorrectProteinValueForSelectedMeat(
   selectedMeat: Element | null,
-  meatDaily: number
+  meatDaily: number,
+  shouldPromptUser: boolean = false
 ) {
   if (selectedMeat) {
     if (selectedMeat == selectTopSirloin) {
@@ -239,14 +239,19 @@ function assignCorrectProteinValueForSelectedMeat(
         PROTEIN_PER_GRAM_CHICKEN_BREAST
       ).toString();
     } else {
-      promptUserForProteinPerGram(meatDaily);
+      if (shouldPromptUser) {
+        promptUserForProteinPerGram(meatDaily);
+      }
     }
   } else {
     console.error("Error: No meat selection was made.");
   }
 }
 
-function updateResultCard(renderTotalDays?: boolean): void {
+function updateResultCard(
+  renderTotalDays?: boolean,
+  shouldPromptUser?: boolean
+): void {
   if (numberOfDays <= 0) {
     const error = "Error: Value of days needs to be a number greater than zero";
     const createdError = createErrorMsg(error);
@@ -268,7 +273,11 @@ function updateResultCard(renderTotalDays?: boolean): void {
     } else {
       displayResultsInCardExpectProteinDaily(numberOfDays, meatDaily);
     }
-    assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily);
+    assignCorrectProteinValueForSelectedMeat(
+      selectedMeat,
+      meatDaily,
+      shouldPromptUser
+    );
     if (incrementorInputResult) {
       incrementorInputResult.value = totalDays;
     }
@@ -428,5 +437,5 @@ incrementorInputResult?.addEventListener("input", (e) => {
 
 confirmDaysPage.addEventListener("click", (e) => {
   e.preventDefault();
-  updateResultCard(true);
+  updateResultCard(true, true);
 });
