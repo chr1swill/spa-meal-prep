@@ -197,6 +197,13 @@ function displayResultsInCardExpectProteinDaily(
   resultMeatDaily.innerText = meatDaily.toString();
 }
 
+function calculateProteinDaily(
+  meatDaily: number,
+  proteinPerGramOfMeat: number
+): number {
+  return meatDaily * proteinPerGramOfMeat;
+}
+
 function promptUserForProteinPerGram(meatDaily: number): void {
   let userSelectProteinPerGram;
   while (
@@ -220,16 +227,9 @@ function promptUserForProteinPerGram(meatDaily: number): void {
       console.error("Provided input is undefined, please provide a number.");
     }
   }
-  resultProteinDaily.innerText = (
-    meatDaily * Number(userSelectProteinPerGram)
+  resultProteinDaily.innerText = calculateProteinDaily(
+    meatDaily, Number(userSelectProteinPerGram)
   ).toString();
-}
-
-function calculateProteinDaily(
-  meatDaily: number,
-  proteinPerGramOfMeat: number
-): number {
-  return meatDaily * proteinPerGramOfMeat;
 }
 
 function assignCorrectProteinValueForSelectedMeat(

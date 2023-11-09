@@ -115,6 +115,9 @@ function displayResultsInCardExpectProteinDaily(totalDays, meatDaily, totalMeat)
     resultTotalDays.innerText = totalDays.toString();
     resultMeatDaily.innerText = meatDaily.toString();
 }
+function calculateProteinDaily(meatDaily, proteinPerGramOfMeat) {
+    return meatDaily * proteinPerGramOfMeat;
+}
 function promptUserForProteinPerGram(meatDaily) {
     let userSelectProteinPerGram;
     while (isNaN(Number(userSelectProteinPerGram)) ||
@@ -135,10 +138,7 @@ function promptUserForProteinPerGram(meatDaily) {
             console.error("Provided input is undefined, please provide a number.");
         }
     }
-    resultProteinDaily.innerText = (meatDaily * Number(userSelectProteinPerGram)).toString();
-}
-function calculateProteinDaily(meatDaily, proteinPerGramOfMeat) {
-    return meatDaily * proteinPerGramOfMeat;
+    resultProteinDaily.innerText = calculateProteinDaily(meatDaily, Number(userSelectProteinPerGram)).toString();
 }
 function assignCorrectProteinValueForSelectedMeat(selectedMeat, meatDaily, shouldPromptUser = false) {
     if (selectedMeat) {
