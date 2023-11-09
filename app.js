@@ -96,8 +96,8 @@ function sumOfStringArray(string) {
 function amountPerDay(amount, days) {
     return amount / days;
 }
-function proteinPerDay(amout, protienPerGram) {
-    return amout * protienPerGram;
+function proteinPerDay(amount, proteinPerGram) {
+    return amount * proteinPerGram;
 }
 function updateInputValue(input) {
     var _a;
