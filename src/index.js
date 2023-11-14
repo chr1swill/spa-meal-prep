@@ -3,7 +3,7 @@ class Incrementor extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
+        this.innerHTML = `
         <div class="incrementor-container">
             <button data-button-incrementor="left">
                 <minus-sign></minus-sign>
@@ -16,9 +16,9 @@ class Incrementor extends HTMLElement {
     `;
     }
     connectedCallback() {
-        this.leftButton = this.shadowRoot.querySelector('[data-button-incrementor="left"]');
-        this.rightButton = this.shadowRoot.querySelector('[data-button-incrementor="right"]');
-        this.inputElement = this.shadowRoot.querySelector('[data-input-incrementor]');
+        this.leftButton = this.querySelector('[data-button-incrementor="left"]');
+        this.rightButton = this.querySelector('[data-button-incrementor="right"]');
+        this.inputElement = this.querySelector('[data-input-incrementor]');
         this.leftButton.addEventListener('click', () => {
             this.inputElement.value = (parseInt(this.inputElement.value) - 1).toString();
         });
@@ -31,8 +31,6 @@ customElements.define('incrementor-element', Incrementor);
 class BackArrow extends HTMLElement {
     constructor() {
         super();
-    }
-    connectedCallback() {
         this.innerHTML = `
        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21" fill="none">
            <path d="M14 2L4 10L14 19" stroke="green" stroke-width="4" stroke-linecap="round" />
