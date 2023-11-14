@@ -6,7 +6,7 @@ class Incrementor extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' })
-    this.shadowRoot!.innerHTML = `
+    this.innerHTML = `
         <div class="incrementor-container">
             <button data-button-incrementor="left">
                 <minus-sign></minus-sign>
@@ -20,9 +20,9 @@ class Incrementor extends HTMLElement {
   }
 
   connectedCallback() {
-      this.leftButton = this.shadowRoot!.querySelector('[data-button-incrementor="left"]') as HTMLElement
-      this.rightButton = this.shadowRoot!.querySelector('[data-button-incrementor="right"]') as HTMLElement
-      this.inputElement = this.shadowRoot!.querySelector('[data-input-incrementor]') as HTMLInputElement
+      this.leftButton = this.querySelector('[data-button-incrementor="left"]') as HTMLElement
+      this.rightButton = this.querySelector('[data-button-incrementor="right"]') as HTMLElement
+      this.inputElement = this.querySelector('[data-input-incrementor]') as HTMLInputElement
 
       this.leftButton.addEventListener('click', () => {
           this.inputElement.value = (parseInt(this.inputElement.value) - 1).toString()
