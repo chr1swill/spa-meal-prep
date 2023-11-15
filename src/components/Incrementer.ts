@@ -5,7 +5,6 @@ class Incrementor extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' })
     this.innerHTML = `
         <div class="incrementor-container">
             <button data-button-incrementor="left">
